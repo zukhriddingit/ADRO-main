@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
@@ -16,17 +17,20 @@
          <center>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <ImageView fx:id="MoviePageImg" fitHeight="229.0" fitWidth="200.0" layoutX="14.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="C:\Users\Rudy\IdeaProjects\ADRO\src\main\java\pictures\movie_1.jpeg" />
-                     </image>
-                  </ImageView>
-                  <Label fx:id="MovieName" alignment="CENTER" layoutX="293.0" layoutY="15.0" prefHeight="51.0" prefWidth="239.0" text="To Gun " textFill="WHITE">
+                  <ImageView fx:id="MoviePageImg" fitHeight="229.0" fitWidth="200.0" layoutX="14.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label fx:id="MovieName" alignment="CENTER" layoutX="304.0" prefHeight="51.0" prefWidth="239.0" text="Top Gun " textFill="WHITE">
                      <font>
                         <Font name="Bodoni MT Black" size="26.0" />
                      </font>
                   </Label>
-                  <Label fx:id="MovieDicription" layoutX="230.0" layoutY="74.0" prefHeight="182.0" prefWidth="365.0" text="Label" />
+                  <Label fx:id="MovieDicription" alignment="CENTER" contentDisplay="CENTER" layoutX="227.0" layoutY="72.0" prefHeight="103.0" prefWidth="358.0" text="After thirty years, Maverick is still pushing the envelope as a top naval aviator, but must confront ghosts of his past when he leads TOP GUN's elite graduates on a mission that demands the ultimate sacrifice from those chosen to fly it." textFill="#fffdfd" wrapText="true" />
+                  <ImageView fx:id="star" fitHeight="127.0" fitWidth="225.0" layoutX="674.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true" />
+                  <Button layoutX="219.0" layoutY="206.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="109.0" style="-fx-background-color: green;" text="Add to cart" textFill="WHITE">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Label layoutX="227.0" layoutY="170.0" prefHeight="7.0" prefWidth="192.0" text="Genre:  Action, Adventure" textFill="WHITE" />
                </children></AnchorPane>
          </center>
       </BorderPane>

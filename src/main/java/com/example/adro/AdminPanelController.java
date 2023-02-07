@@ -3,8 +3,12 @@ package com.example.adro;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
@@ -14,7 +18,9 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
 import java.util.List;
@@ -189,5 +195,14 @@ public class AdminPanelController implements Initializable {
         Price.setCellValueFactory(new PropertyValueFactory<>("price"));
         StartDate.setCellValueFactory(new PropertyValueFactory<>("startDate"));
         EndDate.setCellValueFactory(new PropertyValueFactory<>("endDate"));
+    }
+
+    public void back(Event event) throws IOException {
+        Node node = (Node)event.getSource();
+        Stage dialogStage = (Stage) node.getScene().getWindow();
+        dialogStage.close();
+        Scene scene = new Scene(FXMLLoader.load(getClass().getResource("Login.fxml")));
+        dialogStage.setScene(scene);
+        dialogStage.show();
     }
 }

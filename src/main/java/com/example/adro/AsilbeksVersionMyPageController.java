@@ -21,27 +21,23 @@ public class AsilbeksVersionMyPageController implements Initializable{
 
 
     @FXML
-
-    private Label MovieDicription;
-
-    @FXML
-    private Label MovieName;
-
-    @FXML
     private ImageView MoviePageImg;
 
     @FXML
-    private AnchorPane moviepage;
+    private ImageView star;
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
-
-
-
-
-
+        File file = new File("src/main/java/pictures");
+        try {
+            Image image = new Image(file.toURI().toURL().toString()+"sta.jpg");
+            Image image1 = new Image(file.toURI().toURL().toString()+"movie_1.jpeg");
+            MoviePageImg.setImage(image1);
+            star.setImage(image);
+        } catch (MalformedURLException e) {
+            throw new RuntimeException(e);
+        }
 
 
     }

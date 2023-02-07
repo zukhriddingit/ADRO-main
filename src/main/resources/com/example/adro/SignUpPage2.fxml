@@ -6,25 +6,19 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #323030;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.adro.SignUpPage20">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #323030;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.adro.SignUpPageController">
    <children>
       <HBox prefHeight="600.0" prefWidth="800.0">
          <children>
             <VBox fx:id="imageVbox" alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="600.0" prefWidth="437.0">
-               <children>
-                  <ImageView fitHeight="568.0" fitWidth="403.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="C:\Users\User\IdeaProjects\ADRO\src\main\java\pictures\black-panther-web.jpg" />
-                     </image>
-                  </ImageView>
-               </children></VBox>
+               <HBox.margin>
+                  <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+               </HBox.margin></VBox>
             <VBox alignment="TOP_CENTER" prefHeight="600.0" prefWidth="369.0">
                <children>
                   <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="41.0" prefWidth="143.0" style="-fx-font-weight: bold;" text="Sing Up" textAlignment="CENTER" textFill="WHITE">
@@ -84,7 +78,7 @@
                               <Insets bottom="20.0" left="30.0" right="30.0" />
                            </VBox.margin>
                         </TextField>
-                        <PasswordField alignment="CENTER" prefHeight="35.0" prefWidth="237.0" promptText="Password" style="-fx-font-weight: bold; -fx-prompt-text-fill: grey; -fx-background-color: #D3D3D3;">
+                        <PasswordField fx:id="password" alignment="CENTER" prefHeight="35.0" prefWidth="237.0" promptText="Password" style="-fx-font-weight: bold; -fx-prompt-text-fill: grey; -fx-background-color: #D3D3D3;">
                            <VBox.margin>
                               <Insets bottom="30.0" left="30.0" right="30.0" />
                            </VBox.margin>

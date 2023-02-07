@@ -54,7 +54,7 @@ public class CartPageController implements Initializable {
     private void refreshable() throws SQLException {
         Movielist.clear();
 
-        query = "SELECT * FROM cart";
+        query = "SELECT * FROM `movies`";
         preparedStatement = connection.prepareStatement(query);
         resultSet = preparedStatement.executeQuery();
 

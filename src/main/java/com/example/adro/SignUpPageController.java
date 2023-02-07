@@ -80,7 +80,7 @@ public class SignUpPageController implements Initializable {
         ImageView imageView =new ImageView();
         try {
             Image image = new Image(file.toURI().toURL().toString()+"black-panther-web.jpg");
-            imageView.setFitHeight(463);
+            imageView.setFitHeight(500);
             imageView.setFitWidth(350);
             imageView.setImage(image);
             imageVbox.getChildren().add(imageView);

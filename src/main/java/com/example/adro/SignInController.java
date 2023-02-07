@@ -1,6 +1,7 @@
 package com.example.adro;
 
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -79,5 +80,14 @@ public class SignInController implements Initializable {
         comboBox.setValue("ADROMAN");
 
 
+    }
+
+    public void signUpButton(Event event) throws IOException {
+        Node node = (Node)event.getSource();
+        Stage dialogStage = (Stage) node.getScene().getWindow();
+        dialogStage.close();
+        Scene scene = new Scene(FXMLLoader.load(getClass().getResource("SignUpPage2.fxml")));
+        dialogStage.setScene(scene);
+        dialogStage.show();
     }
 }

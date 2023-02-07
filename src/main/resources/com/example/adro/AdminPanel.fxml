@@ -9,25 +9,24 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="744.0" prefWidth="1529.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.adro.AdminPanelController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="744.0" prefWidth="1529.0" style="-fx-background-color: #cddbc4;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.adro.AdminPanelController">
     <children>
-        <BorderPane layoutX="175.0" layoutY="6.0" prefHeight="394.0" prefWidth="600.0" style="-fx-background-color: orange;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="6.0">
+        <BorderPane layoutX="175.0" layoutY="6.0" prefHeight="394.0" prefWidth="600.0" style="-fx-background-color: #cddbc4;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="6.0">
             <top>
                 <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                     <children>
-                        <Label fx:id="welcomeText" alignment="CENTER" contentDisplay="CENTER" prefHeight="56.0" prefWidth="207.0" text="Admin Panel" textFill="#468189">
+                  <Button fx:id="homeButton" mnemonicParsing="false" onAction="#back" prefHeight="41.0" prefWidth="102.0" style="-fx-background-color: transparent; -fx-font-weight: bold; -fx-border-color: black; -fx-font-size: 24px;" text="ADRO" textFill="#7400fa" />
+                        <Label fx:id="welcomeText" alignment="CENTER" contentDisplay="CENTER" prefHeight="56.0" prefWidth="1306.0" text="Admin Panel" textFill="#468189">
                             <font>
                                 <Font name="System Bold" size="27.0" />
                             </font>
                         </Label>
-                  <ImageView fitHeight="62.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true" />
                     </children>
                 </HBox>
             </top>

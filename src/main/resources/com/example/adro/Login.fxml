@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
@@ -17,16 +19,22 @@
                <children>
                   <Pane prefHeight="363.0" prefWidth="350.0" styleClass="pane" stylesheets="@Login.css">
                      <children>
-                        <Label layoutX="102.0" layoutY="137.0" prefHeight="47.0" prefWidth="90.0" text="Login" textFill="GREY">
+                        <Label layoutX="103.0" layoutY="109.0" prefHeight="47.0" prefWidth="90.0" text="Login" textFill="WHITE">
                            <font>
                               <Font name="Berlin Sans FB Demi Bold" size="29.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="username" alignment="CENTER" layoutX="50.0" layoutY="217.0" prefHeight="25.0" prefWidth="192.0" promptText="User name" styleClass="l" stylesheets="@Login.css" />
-                        <Button fx:id="enter" layoutX="117.0" layoutY="379.0" mnemonicParsing="false" onAction="#signInButton" prefHeight="25.0" prefWidth="59.0" styleClass="btn" stylesheets="@Login.css" text="Enter" textFill="#f2f2f2" />
-                        <PasswordField fx:id="password" alignment="CENTER" layoutX="50.0" layoutY="277.0" prefHeight="25.0" prefWidth="192.0" promptText="Password" styleClass="l" stylesheets="@Login.css" />
-                        <Label fx:id="label" layoutX="132.0" layoutY="320.0" styleClass="lab" stylesheets="@Login.css" textFill="WHITE" />
-                        <Button fx:id="register" layoutX="192.0" layoutY="379.0" mnemonicParsing="false" styleClass="btn-reg" stylesheets="@Login.css" text="Register" textFill="GREY" />
+                        <TextField fx:id="username" alignment="CENTER" layoutX="52.0" layoutY="182.0" prefHeight="25.0" prefWidth="192.0" promptText="User name" styleClass="l" stylesheets="@Login.css" />
+                        <Button fx:id="enter" layoutX="118.0" layoutY="346.0" mnemonicParsing="false" onAction="#signInButton" prefHeight="25.0" prefWidth="59.0" styleClass="btn" stylesheets="@Login.css" text="Enter" textFill="#f2f2f2" />
+                        <PasswordField fx:id="password" alignment="CENTER" layoutX="52.0" layoutY="227.0" prefHeight="25.0" prefWidth="192.0" promptText="Password" styleClass="l" stylesheets="@Login.css" />
+                        <Label fx:id="label" alignment="CENTER" layoutX="53.0" layoutY="315.0" prefHeight="17.0" prefWidth="184.0" styleClass="lab" stylesheets="@Login.css" textFill="WHITE" />
+                        <Button fx:id="register" onAction="#signUpButton" layoutX="162.0" layoutY="400.0" mnemonicParsing="false" styleClass="btn-reg" stylesheets="@Login.css" text="Register" textFill="WHITE" />
+                        <Label layoutX="47.0" layoutY="404.0" prefHeight="17.0" prefWidth="111.0" text="Not a user yet?" textFill="WHITE" />
+                        <ComboBox fx:id="comboBox" layoutX="53.0" layoutY="275.0" prefHeight="25.0" prefWidth="192.0" promptText="Login as" styleClass="combobox" stylesheets="@Login.css">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ComboBox>
                      </children>
                   </Pane>
                </children>

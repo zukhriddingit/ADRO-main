@@ -3,7 +3,7 @@
 
 }
 .pane{
-    -fx-background-color:darkgray;
+    -fx-background-color:#1c4094;
     -fx-background-radius:50 0 0 50;
 }
 .btn{
@@ -27,9 +27,11 @@
 }
 .lab{
     -fx-text-fill:red;
+    -fx-font-weight:bold;
+}
+.combobox{
+    -fx-background-color:white;
 }
 .l{
-    -fx-background-color:#D3D3D3;
-    -fx-prompt-text-fill:grey;
-    -fx-font-weight:bold;
+    -fx-background-color:white;
 }
