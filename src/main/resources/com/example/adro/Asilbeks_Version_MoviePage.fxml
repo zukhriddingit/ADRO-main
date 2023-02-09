@@ -30,7 +30,15 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Label fx:id="Genre" layoutX="227.0" layoutY="170.0" prefHeight="7.0" prefWidth="192.0" textFill="WHITE" />
+                  <Label layoutX="249.0" layoutY="170.0" text="Genre:" textFill="#e8e2e2">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="Genre" layoutX="296.0" layoutY="171.0" prefHeight="7.0" prefWidth="192.0" text="hahaha" textFill="WHITE">
+                     <font>
+                        <Font size="13.0" />
+                     </font></Label>
                </children></AnchorPane>
          </center>
       </BorderPane>
