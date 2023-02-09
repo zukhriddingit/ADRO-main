@@ -142,8 +142,6 @@ public class DashboardController implements Initializable {
         imageView.setFitWidth(150);
         imageView.setId(imageID);
 
-
-
         // For 1 vertical column
         VBox vBox1=new VBox();
         Button button = new Button();
@@ -152,10 +150,8 @@ public class DashboardController implements Initializable {
         button.setGraphic(imageView);
         button.setStyle("-fx-background-color: transparent;"+"-fx-cursor:hand;");
         button.setId(movieID);
-    //    button.setOnMouseClicked(mouseEvent -> method(stage,movieID));
 
-
-
+        // for every movie
         Label label = new Label(movieName);
         label.setStyle("-fx-text-fill:white;" + "-fx-font-weight: 700;");
         vBox1.setSpacing(10);
@@ -184,18 +180,6 @@ public class DashboardController implements Initializable {
 
        return vBox1;
     }
-//        public void method(Stage stage,String id){
-//            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Asilbek's_Version_MoviePage.fxml"));
-//            Scene scene = null;
-//            try {
-//                scene = new Scene(fxmlLoader.load(), 500, 500);
-//                stage.setScene(scene);
-//                stage.show();
-//            } catch (IOException e) {
-//                throw new RuntimeException(e);
-//            }
-//
-
    }
 
 
