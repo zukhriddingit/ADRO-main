@@ -23,14 +23,14 @@
                         <Font name="Bodoni MT Black" size="26.0" />
                      </font>
                   </Label>
-                  <Label fx:id="MovieDicription" alignment="CENTER" contentDisplay="CENTER" layoutX="227.0" layoutY="72.0" prefHeight="103.0" prefWidth="358.0" text="After thirty years, Maverick is still pushing the envelope as a top naval aviator, but must confront ghosts of his past when he leads TOP GUN's elite graduates on a mission that demands the ultimate sacrifice from those chosen to fly it." textFill="#fffdfd" wrapText="true" />
+                  <Label fx:id="MovieDescription" alignment="CENTER" contentDisplay="CENTER" layoutX="227.0" layoutY="72.0" prefHeight="103.0" prefWidth="358.0" textFill="#fffdfd" wrapText="true" />
                   <ImageView fx:id="star" fitHeight="127.0" fitWidth="225.0" layoutX="674.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true" />
                   <Button layoutX="219.0" layoutY="206.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="109.0" style="-fx-background-color: green;" text="Add to cart" textFill="WHITE">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Label layoutX="227.0" layoutY="170.0" prefHeight="7.0" prefWidth="192.0" text="Genre:  Action, Adventure" textFill="WHITE" />
+                  <Label fx:id="Genre" layoutX="227.0" layoutY="170.0" prefHeight="7.0" prefWidth="192.0" textFill="WHITE" />
                </children></AnchorPane>
          </center>
       </BorderPane>

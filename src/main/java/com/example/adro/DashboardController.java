@@ -172,7 +172,7 @@ public class DashboardController implements Initializable {
             public void handle(ActionEvent actionEvent) {
                 Parent fxml = null;
                 try {
-                    fxml = FXMLLoader.load(getClass().getResource("Asilbek's_Version_MoviePage.fxml"));
+                    fxml = FXMLLoader.load(getClass().getResource("Asilbeks_Version_MoviePage.fxml"));
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
@@ -185,7 +185,7 @@ public class DashboardController implements Initializable {
        return vBox1;
     }
 //        public void method(Stage stage,String id){
-//            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Asilbek's_Version_MoviePage.fxml"));
+//            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Asilbeks_Version_MoviePage.fxml"));
 //            Scene scene = null;
 //            try {
 //                scene = new Scene(fxmlLoader.load(), 500, 500);
