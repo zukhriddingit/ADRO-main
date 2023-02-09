@@ -45,7 +45,7 @@ public class SignInController implements Initializable {
     public void signInButton(ActionEvent event) throws IOException, SQLException {
         DataBaseConnect db = new DataBaseConnect();
         String tableName=(comboBox.getValue().equals("ADROMAN"))?"register":"admin";
-        String pageName=(comboBox.getValue().equals("ADROMAN"))?"Dashboard":"AdminPanel";
+        String pageName=(comboBox.getValue().equals("ADROMAN"))?"DashboardPane":"AdminPanel";
         if (username.getText().isEmpty()){
             label.setText("User Name is Empty!");
         } else if (password.getText().isEmpty()) {
