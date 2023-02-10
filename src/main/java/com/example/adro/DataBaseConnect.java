@@ -52,4 +52,28 @@ public class DataBaseConnect {
         return false;
     }
 
+    public static AdminMovie dashMovie(int id) throws SQLException {
+        PreparedStatement ps=getConnect().prepareStatement("SELECT * FROM `movies` WHERE id="+id);
+        System.out.println("IS this working?");
+        ResultSet r= ps.executeQuery();
+        AdminMovie adminMovie = new AdminMovie();
+        if (r.next()){
+            adminMovie.setDescription(r.getString("description"));
+            adminMovie.setDuration(r.getInt("duration"));
+            adminMovie.setGenre(r.getString("genre"));
+            adminMovie.setLanguage(r.getString("language"));
+            adminMovie.setPrice(r.getInt("price"));
+            adminMovie.setSession(r.getString("session"));
+            adminMovie.setTitle(r.getString("title"));
+            adminMovie.setNumberTickets(r.getInt("number_tickets"));
+            adminMovie.setStartDate(r.getDate("start_date"));
+            adminMovie.setEndDate(r.getDate("end_date"));
+            System.out.println(r.getString("title"));
+        }
+        return adminMovie;
+    }
+
+    public static void main(String[] args) throws SQLException {
+        dashMovie(1);
+    }
 }

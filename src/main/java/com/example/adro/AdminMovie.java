@@ -15,6 +15,8 @@ public class AdminMovie {
 
     private int price;
 
+    public AdminMovie(){}
+
     public AdminMovie(String title, String description, String genre, String language, int duration, int numberTickets, String session, Date startDate, Date endDate, int price) {
         this.title = title;
         this.description = description;
