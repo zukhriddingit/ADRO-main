@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
@@ -54,6 +55,8 @@ public class MyProfileController implements Initializable {
 
     @FXML
     private TextField TextfillUserName;
+    @FXML
+    private BorderPane border;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -74,8 +77,8 @@ public class MyProfileController implements Initializable {
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
-//                dashboardPane.getChildren().removeAll();
-//                dashboardPane.getChildren().setAll(fxml);
+                border.getChildren().removeAll();
+                border.getChildren().setAll(fxml);
             }
         });
     }

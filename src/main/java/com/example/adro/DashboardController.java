@@ -70,7 +70,7 @@ public class DashboardController implements Initializable {
             public void handle(ActionEvent actionEvent) {
                 Parent fxml = null;
                 try {
-                    fxml= FXMLLoader.load(getClass().getResource("mypro.fxml"));
+                    fxml= FXMLLoader.load(getClass().getResource("MyProfile.fxml"));
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }

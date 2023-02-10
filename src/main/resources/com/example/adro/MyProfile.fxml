@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="535.0" prefWidth="949.0" styleClass="right" stylesheets="@myprofile.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.adro.MyProfileController">
+<BorderPane fx:id="border" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="535.0" prefWidth="949.0" styleClass="right" stylesheets="@myprofile.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.adro.MyProfileController">
    <left>
       <VBox alignment="CENTER" prefHeight="535.0" prefWidth="295.0" styleClass="left" stylesheets="@myprofile.css" BorderPane.alignment="TOP_CENTER">
          <children>
@@ -41,7 +41,7 @@
                   <Insets bottom="10.0" />
                </VBox.margin>
             </Label>
-            <Pane prefHeight="200.0" prefWidth="200.0">
+            <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0">
                <children>
                   <Button fx:id="Editbtn" layoutX="105.0" layoutY="56.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="59.0" styleClass="editbtn" stylesheets="@myprofile.css" text="Edit" textFill="#f8f8f8" />
                   <Button fx:id="LogoutBtn" alignment="CENTER" layoutX="211.0" layoutY="145.0" mnemonicParsing="false" styleClass="logout" stylesheets="@myprofile.css" text="Log out" />
@@ -67,7 +67,7 @@
             <TextField fx:id="TextfillNum" />
             <TextField fx:id="TextfillUserName" />
             <TextField fx:id="TextfillPassword" />
-            <Pane prefHeight="200.0" prefWidth="200.0">
+            <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0">
                <children>
                   <Button fx:id="Savebtn" layoutX="570.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="51.0" styleClass="save" stylesheets="@myprofile.css" text="Save" textFill="WHITE" />
                </children>
