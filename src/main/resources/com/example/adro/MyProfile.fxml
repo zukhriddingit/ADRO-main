@@ -1,44 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="535.0" prefWidth="949.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.adro.MyProfileController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="535.0" prefWidth="949.0" styleClass="right" stylesheets="@myprofile.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.adro.MyProfileController">
    <left>
-      <VBox prefHeight="535.0" prefWidth="218.0" styleClass="left" stylesheets="@myprofile.css" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER" prefHeight="535.0" prefWidth="295.0" styleClass="left" stylesheets="@myprofile.css" BorderPane.alignment="TOP_CENTER">
          <children>
             <VBox alignment="CENTER" prefHeight="191.0" prefWidth="218.0">
                <VBox.margin>
-                  <Insets top="50.0" />
+                  <Insets top="30.0" />
                </VBox.margin>
                <children>
-                  <ImageView fx:id="userImage" fitHeight="150.0" fitWidth="219.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="userImage" fitHeight="174.0" fitWidth="219.0" pickOnBounds="true" preserveRatio="true" />
                </children>
             </VBox>
-            <Label fx:id="FullName" prefHeight="28.0" prefWidth="168.0" text="Full Name" textFill="WHITE">
+            <Label fx:id="FullName" prefHeight="28.0" prefWidth="168.0" textFill="WHITE">
                <VBox.margin>
                   <Insets bottom="10.0" />
                </VBox.margin>
             </Label>
-            <Label fx:id="email" prefHeight="28.0" prefWidth="168.0" text="email" textFill="WHITE">
+            <Label fx:id="email" prefHeight="28.0" prefWidth="168.0" textFill="WHITE">
                <VBox.margin>
                   <Insets bottom="10.0" />
                </VBox.margin>
             </Label>
-            <Label fx:id="number" prefHeight="28.0" prefWidth="168.0" text="phone number" textFill="WHITE">
+            <Label fx:id="number" prefHeight="28.0" prefWidth="168.0" textFill="WHITE">
                <VBox.margin>
                   <Insets bottom="10.0" />
                </VBox.margin>
             </Label>
-            <Label fx:id="usernName" prefHeight="28.0" prefWidth="168.0" text="user name" textFill="WHITE">
+            <Label fx:id="usernName" prefHeight="28.0" prefWidth="168.0" textFill="WHITE">
                <VBox.margin>
                   <Insets bottom="10.0" />
                </VBox.margin>
             </Label>
+            <Pane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="Editbtn" layoutX="105.0" layoutY="56.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="59.0" styleClass="editbtn" stylesheets="@myprofile.css" text="Edit" textFill="#f8f8f8" />
+                  <Button fx:id="LogoutBtn" alignment="CENTER" layoutX="211.0" layoutY="145.0" mnemonicParsing="false" styleClass="logout" stylesheets="@myprofile.css" text="Log out" />
+               </children>
+            </Pane>
          </children>
          <BorderPane.margin>
             <Insets />
@@ -48,4 +56,26 @@
          </padding>
       </VBox>
    </left>
+   <center>
+      <VBox alignment="TOP_CENTER" prefHeight="535.0" prefWidth="688.0" spacing="25.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+         <children>
+            <TextField fx:id="TextfillFullname" />
+            <TextField fx:id="TextfillEmail" />
+            <TextField fx:id="TextfillNum" />
+            <TextField fx:id="TextfillUserName" />
+            <TextField fx:id="TextfillPassword" />
+            <Pane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="Savebtn" layoutX="570.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="51.0" styleClass="save" stylesheets="@myprofile.css" text="Save" textFill="WHITE" />
+               </children>
+            </Pane>
+         </children>
+         <padding>
+            <Insets top="100.0" />
+         </padding>
+      </VBox>
+   </center>
 </BorderPane>
