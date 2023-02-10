@@ -126,18 +126,16 @@ public class DashboardController implements Initializable {
                     createCustomNode("Wakanda Forever", "new_movie6", file.toURI().toURL().toString() + "new_movie6.jpg", 15),
                     createCustomNode("Detective Knight", "new_movie7", file.toURI().toURL().toString() + "new_movie7.jpg", 16),
                     createCustomNode("The Woman King", "new_movie8", file.toURI().toURL().toString() + "new_movie8.jpg", 17),
-                    createCustomNode("All Quiet on the Western Front", "movie_9", file.toURI().toURL().toString() + "movie_9.jpg", 18));        } catch (MalformedURLException e) {
+                    createCustomNode("All Quiet on the Western Front", "movie_9", file.toURI().toURL().toString() + "movie_9.jpg", 18));
+        } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
         scrollPane_NewMovies.setContent(hbox);
-
-
-
     }
 
-    public Node createCustomNode(String movieName, String imageID , String imageLink, int movieID){
+    public Node createCustomNode(String movieName, String imageID , String imageLink, int movieID) {
         DataBaseConnect db = new DataBaseConnect();
-        ImageView imageView=new ImageView();
+        ImageView imageView = new ImageView();
         imageView.setImage(new Image(imageLink));
         imageView.setFitHeight(200);
         imageView.setFitWidth(150);
@@ -150,17 +148,14 @@ public class DashboardController implements Initializable {
             }
         });
 
-
-
-        // For 1 vertical column
-        VBox vBox1=new VBox();
+        VBox vBox1 = new VBox();
         Label label = new Label(movieName);
         label.setStyle("-fx-text-fill:white;" + "-fx-font-weight: 700;");
         vBox1.setSpacing(10);
+        vBox1.getChildren().add(imageView);
         vBox1.getChildren().add(label);
         vBox1.setStyle("-fx-padding: 5;");
         vBox1.setAlignment(Pos.CENTER);
-
         return vBox1;
     }
 
@@ -181,7 +176,6 @@ public class DashboardController implements Initializable {
         dashboardPane.getChildren().setAll(fxml);
 
     }
-
 }
 
 
