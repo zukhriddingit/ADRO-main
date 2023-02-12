@@ -9,9 +9,11 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -31,18 +33,20 @@
                 </HBox>
             </top>
          <left>
-                <TableView fx:id="table" prefHeight="638.0" prefWidth="961.0" style="-fx-background-color: #7E909A;" BorderPane.alignment="CENTER">
+                <TableView fx:id="table" prefHeight="628.0" prefWidth="1066.0" style="-fx-background-color: #7E909A;" BorderPane.alignment="CENTER">
                     <columns>
                         <TableColumn fx:id="MovieTitle" prefWidth="146.0" style="-fx-font-size: 15px;" text="Movie Title" />
                         <TableColumn fx:id="MovieDescription" prefWidth="137.5999755859375" style="-fx-font-size: 15px;" text="Description" />
-                        <TableColumn fx:id="Genre" prefWidth="104.0" style="-fx-font-size: 15px;" text="Genre" />
-                        <TableColumn fx:id="Lang" prefWidth="92.00003051757812" style="-fx-font-size: 15px;" text="Language" />
-                  <TableColumn fx:id="Duration" prefWidth="100.0" style="-fx-font-size: 15px;" text="Duration" />
-                  <TableColumn fx:id="Session" prefWidth="70.4000244140625" style="-fx-font-size: 15px;" text="Session" />
-                  <TableColumn fx:id="StartDate" prefWidth="70.4000244140625" style="-fx-font-size: 15px;" text="S-Date" />
-                  <TableColumn fx:id="EndDate" prefWidth="70.4000244140625" style="-fx-font-size: 15px;" text="E-Date" />
+                        <TableColumn fx:id="Genre" prefWidth="96.0" style="-fx-font-size: 15px;" text="Genre" />
+                        <TableColumn fx:id="Lang" prefWidth="78.39996337890625" style="-fx-font-size: 15px;" text="Language" />
+                  <TableColumn fx:id="Duration" prefWidth="81.59994506835938" style="-fx-font-size: 15px;" text="Duration" />
+                  <TableColumn fx:id="Session" prefWidth="78.4000244140625" style="-fx-font-size: 15px;" text="Session" />
+                  <TableColumn fx:id="Price1" prefWidth="66.39996337890625" style="-fx-font-size: 15px;" text="IMDB" />
+                  <TableColumn fx:id="Price11" prefWidth="66.39996337890625" style="-fx-font-size: 15px;" text="Year" />
+                  <TableColumn fx:id="StartDate" prefWidth="92.0" style="-fx-font-size: 15px;" text="S-Date" />
+                  <TableColumn fx:id="EndDate" prefWidth="84.79998779296875" style="-fx-font-size: 15px;" text="E-Date" />
                   <TableColumn fx:id="NumberTickets" prefWidth="70.4000244140625" style="-fx-font-size: 15px;" text="Tickets" />
-                  <TableColumn fx:id="Price" prefWidth="83.20001220703125" style="-fx-font-size: 15px;" text="Price" />
+                  <TableColumn fx:id="Price" prefWidth="65.5999755859375" style="-fx-font-size: 15px;" text="Price" />
                     </columns>
                <BorderPane.margin>
                   <Insets bottom="10.0" left="10.0" />
@@ -50,9 +54,9 @@
                 </TableView>
          </left>
          <center>
-            <AnchorPane prefHeight="638.0" prefWidth="838.0" BorderPane.alignment="CENTER">
+            <AnchorPane prefHeight="638.0" prefWidth="240.0" BorderPane.alignment="CENTER">
                <children>
-                  <VBox alignment="TOP_CENTER" prefHeight="624.0" prefWidth="263.0" styleClass="admin-form" stylesheets="@AdminPanel.css" AnchorPane.leftAnchor="20.0">
+                  <VBox alignment="TOP_CENTER" layoutX="57.0" layoutY="7.0" prefHeight="624.0" prefWidth="218.0" styleClass="admin-form" stylesheets="@AdminPanel.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                      <children>
                         <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="27.0" prefWidth="124.0" text="Movie Title">
                            <VBox.margin>
@@ -64,7 +68,7 @@
                         </Label>
                         <TextField fx:id="movieTitle" prefHeight="26.0" prefWidth="272.0" promptText="Movie Title...">
                            <VBox.margin>
-                              <Insets bottom="10.0" />
+                              <Insets />
                            </VBox.margin>
                         </TextField>
                         <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="27.0" prefWidth="124.0" text="Description">
@@ -72,9 +76,9 @@
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <TextArea fx:id="movieDescription" prefHeight="103.0" prefWidth="263.0" promptText="Description...">
+                        <TextArea fx:id="movieDescription" prefHeight="69.0" prefWidth="224.0" promptText="Description...">
                            <VBox.margin>
-                              <Insets bottom="10.0" />
+                              <Insets />
                            </VBox.margin>
                         </TextArea>
                         <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="27.0" prefWidth="124.0" text="Genre">
@@ -84,7 +88,7 @@
                         </Label>
                         <ComboBox fx:id="combo_genre" prefHeight="26.0" prefWidth="217.0" promptText="Movie Genre">
                            <VBox.margin>
-                              <Insets bottom="10.0" />
+                              <Insets />
                            </VBox.margin>
                         </ComboBox>
                         <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="27.0" prefWidth="124.0" text="Language">
@@ -94,9 +98,21 @@
                         </Label>
                         <ComboBox fx:id="combo_languages" layoutX="16.0" layoutY="178.0" prefHeight="26.0" prefWidth="217.0" promptText="Movie Language">
                            <VBox.margin>
-                              <Insets bottom="10.0" />
+                              <Insets />
                            </VBox.margin>
                         </ComboBox>
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="60.0" layoutY="248.0" prefHeight="27.0" prefWidth="124.0" text="IMDB">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="rating" layoutX="10.0" layoutY="356.0" prefHeight="26.0" prefWidth="230.0" promptText="Rating..." />
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="60.0" layoutY="268.0" prefHeight="27.0" prefWidth="124.0" text="Year of release">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="release_year" layoutX="10.0" layoutY="295.0" prefHeight="26.0" prefWidth="230.0" promptText="Year..." />
                         <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="27.0" prefWidth="124.0" text="Duration">
                            <font>
                               <Font size="18.0" />
@@ -104,7 +120,7 @@
                         </Label>
                         <TextField fx:id="movieDuration" prefHeight="26.0" prefWidth="230.0" promptText="Duration...">
                            <VBox.margin>
-                              <Insets bottom="10.0" />
+                              <Insets />
                            </VBox.margin>
                         </TextField>
                         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="80.0" layoutY="301.0" prefHeight="27.0" prefWidth="178.0" text="Number of Tickets">
@@ -114,7 +130,7 @@
                         </Label>
                         <TextField fx:id="numberTickets" layoutX="10.0" layoutY="328.0" prefHeight="26.0" prefWidth="230.0" promptText="Number Of Tickets...">
                            <VBox.margin>
-                              <Insets bottom="10.0" />
+                              <Insets />
                            </VBox.margin>
                         </TextField>
                         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="80.0" layoutY="197.0" prefHeight="27.0" prefWidth="124.0" text="Session">
@@ -124,7 +140,7 @@
                         </Label>
                         <ComboBox fx:id="combo_session" layoutX="32.0" layoutY="224.0" prefHeight="26.0" prefWidth="217.0" promptText="Session Time">
                            <VBox.margin>
-                              <Insets bottom="10.0" />
+                              <Insets />
                            </VBox.margin>
                         </ComboBox>
                         <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="27.0" prefWidth="124.0" text="Start/End Date">
@@ -136,12 +152,12 @@
                            <children>
                               <DatePicker fx:id="movieStartDate" prefHeight="26.0" prefWidth="146.0" promptText="Start Date">
                                  <HBox.margin>
-                                    <Insets bottom="10.0" />
+                                    <Insets />
                                  </HBox.margin>
                               </DatePicker>
                               <DatePicker fx:id="movieEndDate" layoutX="10.0" layoutY="10.0" prefHeight="26.0" prefWidth="136.0" promptText="End Date">
                                  <HBox.margin>
-                                    <Insets bottom="10.0" />
+                                    <Insets />
                                  </HBox.margin>
                               </DatePicker>
                            </children>
@@ -153,46 +169,62 @@
                         </Label>
                         <TextField fx:id="moviePrice" prefHeight="26.0" prefWidth="212.0" promptText="Price...">
                            <VBox.margin>
-                              <Insets bottom="20.0" />
+                              <Insets />
                            </VBox.margin>
                         </TextField>
                      </children>
                   </VBox>
-               </children></AnchorPane>
+               </children>
+               <BorderPane.margin>
+                  <Insets left="10.0" />
+               </BorderPane.margin></AnchorPane>
          </center>
          <right>
-            <AnchorPane prefHeight="638.0" prefWidth="282.0" BorderPane.alignment="CENTER">
+            <AnchorPane prefHeight="638.0" prefWidth="218.0" BorderPane.alignment="CENTER">
                <children>
-                  <VBox layoutX="14.0" layoutY="184.0" prefHeight="250.0" prefWidth="253.0" AnchorPane.rightAnchor="14.799999999999955">
+                  <VBox layoutX="32.0" layoutY="398.0" prefHeight="123.0" prefWidth="154.0" AnchorPane.rightAnchor="32.0">
                      <children>
-                        <Button fx:id="addMovieBtn1" mnemonicParsing="false" onAction="#addAction" prefHeight="57.0" prefWidth="244.0" style="-fx-background-color: green;" text="ADD" textFill="WHITE">
+                        <Button fx:id="addMovieBtn1" mnemonicParsing="false" onAction="#addAction" prefHeight="49.0" prefWidth="154.0" style="-fx-background-color: green; -fx-background-radius: 30;" text="ADD" textFill="WHITE">
                            <font>
-                              <Font size="28.0" />
+                              <Font size="21.0" />
                            </font>
                            <opaqueInsets>
                               <Insets />
                            </opaqueInsets>
                            <VBox.margin>
-                              <Insets bottom="30.0" />
+                              <Insets bottom="15.0" />
                            </VBox.margin>
                         </Button>
-                        <Button fx:id="deleteButton" mnemonicParsing="false" onAction="#deleteAction" prefHeight="52.0" prefWidth="242.0" style="-fx-background-color: red;" text="DELETE" textFill="WHITE">
+                        <Button fx:id="deleteButton" mnemonicParsing="false" onAction="#deleteAction" prefHeight="33.0" prefWidth="154.0" style="-fx-background-color: red; -fx-background-radius: 30;" text="DELETE" textFill="WHITE">
                            <font>
-                              <Font size="28.0" />
+                              <Font size="21.0" />
                            </font>
                            <VBox.margin>
-                              <Insets bottom="30.0" />
+                              <Insets bottom="15.0" />
                            </VBox.margin>
                         </Button>
-                        <Button fx:id="editButton" mnemonicParsing="false" onAction="#editAction" prefHeight="57.0" prefWidth="241.0" style="-fx-background-color: blue;" text="EDIT" textFill="WHITE">
+                        <Button fx:id="editButton" mnemonicParsing="false" onAction="#editAction" prefHeight="12.0" prefWidth="154.0" style="-fx-background-color: blue; -fx-background-radius: 30;" text="EDIT" textFill="WHITE">
                            <font>
-                              <Font size="28.0" />
+                              <Font size="21.0" />
                            </font>
                            <opaqueInsets>
                               <Insets />
                            </opaqueInsets>
                         </Button>
                      </children></VBox>
+                  <VBox alignment="CENTER" layoutX="16.0" layoutY="64.0" prefHeight="238.0" prefWidth="173.0">
+                     <children>
+                        <StackPane prefHeight="208.0" prefWidth="147.0" style="-fx-border-color: black; -fx-border-radius: 0;">
+                           <children>
+                              <ImageView fx:id="imported" fitHeight="227.0" fitWidth="183.0" pickOnBounds="true" preserveRatio="true" />
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="20.0" />
+                           </VBox.margin>
+                        </StackPane>
+                        <Button fx:id="importImage" mnemonicParsing="false" text="Add a poster" />
+                     </children>
+                  </VBox>
                </children>
             </AnchorPane>
          </right>
