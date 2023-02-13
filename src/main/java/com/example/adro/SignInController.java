@@ -57,6 +57,8 @@ public class SignInController implements Initializable {
             Scene scene = new Scene(FXMLLoader.load(getClass().getResource(pageName+".fxml")),1366,700);
             dialogStage.setScene(scene);
             dialogStage.show();
+            MyProfileController mp = new MyProfileController();
+            mp.setUsername(username.getText());
         } else {
             label.setText("error!");
         }

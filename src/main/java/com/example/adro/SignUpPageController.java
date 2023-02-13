@@ -51,7 +51,7 @@ public class SignUpPageController implements Initializable {
     protected void registerAction(ActionEvent event) throws SQLException, IOException {
 
         DataBaseConnect dataBaseConnect = new DataBaseConnect();
-        String sql = "INSERT INTO `register`(`fullname`, `email`, `phone`, `username`, `password`, `dateOfBirth`) VALUES ('" + fullname.getText() + "','" + email.getText() + "','" + phoneNum.getText() + "','" + userName.getText() + "','" + password.getText() + "','" + dateOfBirth.getValue() + "')";
+        String sql = "INSERT INTO `register`(`fullname`, `email`, `phone`, `username`, `password`, `dateOfBirth`) VALUES ('" + fullname.getText() + "','" + email.getText() + "','" + phoneNum.getText() + "','" + userName.getText() + "',MD5('" + password.getText() + "'),'" + dateOfBirth.getValue() + "')";
         if (fullname.getText().isEmpty()||email.getText().isEmpty()||phoneNum.getText().isEmpty()||userName.getText().isEmpty()||password.getText().isEmpty()||dateOfBirth.getValue().toString().isEmpty()){
             errorMsg.setText("Every field should be filled!");
         }else if (!emailValidate()){
@@ -59,16 +59,18 @@ public class SignUpPageController implements Initializable {
         } else if (!phoneValidate(phoneNum.getText())){
             errorMsg.setText("Please, enter true form of phone number!");
         }
-        else if(dataBaseConnect.getInfo(userName.getText())){
+        else if(dataBaseConnect.getInfo(userName.getText()).next()){
             errorMsg.setText("This username already exists!");
         }else {
             dataBaseConnect.insertData(sql);
             Node node = (Node)event.getSource();
             Stage dialogStage = (Stage) node.getScene().getWindow();
             dialogStage.close();
-            Scene scene = new Scene(FXMLLoader.load(getClass().getResource("Dashboard.fxml")));
+            Scene scene = new Scene(FXMLLoader.load(getClass().getResource("Dashboard.fxml")), 1366, 700);
             dialogStage.setScene(scene);
             dialogStage.show();
+            MyProfileController mp = new MyProfileController();
+            mp.setUsername(userName.getText());
         }
     }
 
@@ -107,14 +109,15 @@ public class SignUpPageController implements Initializable {
     }
 
     private boolean phoneValidate(String phone){
-        if (phone.startsWith("93")||phone.startsWith("91")||phone.startsWith("94")||phone.startsWith("97")||phone.startsWith("99")||phone.startsWith("88")||phone.startsWith("33")){
-            Pattern p = Pattern.compile("[0-9]");
-            Matcher m = p.matcher(phone);
-            if (m.find() && m.group().equals(phone)){
+        if (phone.length()==9){
+            if (phone.startsWith("93")||phone.startsWith("91")||phone.startsWith("94")||phone.startsWith("97")||phone.startsWith("99")||phone.startsWith("88")||phone.startsWith("33")){
+                for (int i=2;i<phone.length();i++){
+                    if (!Character.isDigit(phone.charAt(i))) return false;
+                }
                 return true;
-            }else {
-                return false;
-            }
-        }else return false;
+            }else return false;
+        } else {
+            return false;
+        }
     }
 }
