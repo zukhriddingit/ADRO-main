@@ -21,7 +21,7 @@
                </HBox.margin></VBox>
             <VBox alignment="TOP_CENTER" prefHeight="600.0" prefWidth="369.0">
                <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="41.0" prefWidth="143.0" style="-fx-font-weight: bold;" text="Sing Up" textAlignment="CENTER" textFill="WHITE">
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="41.0" prefWidth="143.0" style="-fx-font-weight: bold;" text="Sign Up" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font size="34.0" />
                      </font>
