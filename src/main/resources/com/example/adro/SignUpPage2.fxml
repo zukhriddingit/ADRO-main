@@ -83,6 +83,11 @@
                               <Insets bottom="30.0" left="30.0" right="30.0" />
                            </VBox.margin>
                         </PasswordField>
+                        <Label id="errorMSg" fx:id="errorMsg" textFill="#ff0505">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </Label>
                         <Button mnemonicParsing="false" onAction="#registerAction" prefHeight="40.0" prefWidth="102.0" style="-fx-background-color: #f27500;" text="LET'S GO">
                            <font>
                               <Font size="18.0" />

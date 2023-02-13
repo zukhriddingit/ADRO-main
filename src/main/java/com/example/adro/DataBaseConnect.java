@@ -32,7 +32,7 @@ public class DataBaseConnect {
     }
 
     public static boolean getInfo(String username) throws SQLException {
-        PreparedStatement preparedStatement = getConnect().prepareStatement("select * from register where username = ?");
+        PreparedStatement preparedStatement = getConnect().prepareStatement("select * from `register` where username = ?");
         preparedStatement.setString(1,username);
         ResultSet r1 = preparedStatement.executeQuery();
         if (r1.next()){

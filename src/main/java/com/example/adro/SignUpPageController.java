@@ -19,6 +19,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class SignUpPageController implements Initializable {
 
@@ -49,10 +51,15 @@ public class SignUpPageController implements Initializable {
     protected void registerAction(ActionEvent event) throws SQLException, IOException {
 
         DataBaseConnect dataBaseConnect = new DataBaseConnect();
-        String sql = "INSERT INTO `register`(`fullname`, `email`, `phone`, `username`, `password`, `dateOfBirth`) VALUES ('"+fullname.getText()+"','"+email.getText()+"','"+phoneNum.getText()+"','"+userName.getText()+"','"+password.getText()+"','"+dateOfBirth.getValue()+"')";
-        if (!email.getText().contains("@")){
+        String sql = "INSERT INTO `register`(`fullname`, `email`, `phone`, `username`, `password`, `dateOfBirth`) VALUES ('" + fullname.getText() + "','" + email.getText() + "','" + phoneNum.getText() + "','" + userName.getText() + "','" + password.getText() + "','" + dateOfBirth.getValue() + "')";
+        if (fullname.getText().isEmpty()||email.getText().isEmpty()||phoneNum.getText().isEmpty()||userName.getText().isEmpty()||password.getText().isEmpty()||dateOfBirth.getValue().toString().isEmpty()){
+            errorMsg.setText("Every field should be filled!");
+        }else if (!emailValidate()){
             errorMsg.setText("Email should contain '@'");
-        }else if(dataBaseConnect.getInfo(userName.getText())){
+        } else if (!phoneValidate(phoneNum.getText())){
+            errorMsg.setText("Please, enter true form of phone number!");
+        }
+        else if(dataBaseConnect.getInfo(userName.getText())){
             errorMsg.setText("This username already exists!");
         }else {
             dataBaseConnect.insertData(sql);
@@ -87,5 +94,27 @@ public class SignUpPageController implements Initializable {
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    private boolean emailValidate(){
+        Pattern p = Pattern.compile("[a-zA-Z0-9._]*@[a-zA-Z0-9]+([.][a-zA-Z]+)");
+        Matcher m = p.matcher(email.getText());
+        if (m.find() && m.group().equals(email.getText())){
+            return true;
+        }else {
+            return false;
+        }
+    }
+
+    private boolean phoneValidate(String phone){
+        if (phone.startsWith("93")||phone.startsWith("91")||phone.startsWith("94")||phone.startsWith("97")||phone.startsWith("99")||phone.startsWith("88")||phone.startsWith("33")){
+            Pattern p = Pattern.compile("[0-9]");
+            Matcher m = p.matcher(phone);
+            if (m.find() && m.group().equals(phone)){
+                return true;
+            }else {
+                return false;
+            }
+        }else return false;
     }
 }
