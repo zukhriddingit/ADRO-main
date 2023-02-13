@@ -164,22 +164,6 @@ public class DashboardController implements Initializable {
             throw new RuntimeException(e);
         }
         scrollPane_NewMovies.setContent(hbox);
-
-
-//        // For search purpose
-//        FilteredList<AdminMovie> filteredData = new FilteredList<>(searchObservableList, b -> true);
-//        Search.textProperty().addListener((observable, oldValue, newValue) -> {
-//            filteredData.setPredicate(adminMovie -> {
-//                if (newValue.isEmpty() || newValue.isBlank() || newValue == null) {
-//                    return true;
-//                }
-//                String searchWord = newValue.toLowerCase();
-//                if (adminMovie.getTitle().toLowerCase().indexOf(searchWord) > -1){
-//                    return true;
-//                }
-//            });
-//        });
-
     }
 
     public Node createCustomNode(String movieName, String imageID, String imageLink, int movieID) {
