@@ -34,7 +34,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="SearchBtn" layoutX="465.0" layoutY="12.0" maxHeight="-Infinity" mnemonicParsing="false" prefHeight="30.0" prefWidth="64.0" styleClass="btn" stylesheets="@DesignDashboard.css" text="Search" textFill="WHITE" AnchorPane.rightAnchor="420.0">
+                  <Button fx:id="SearchBtn" onAction="#searchAction" layoutX="465.0" layoutY="12.0" maxHeight="-Infinity" mnemonicParsing="false" prefHeight="30.0" prefWidth="64.0" styleClass="btn" stylesheets="@DesignDashboard.css" text="Search" textFill="WHITE" AnchorPane.rightAnchor="420.0">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font></Button>
