@@ -10,6 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
@@ -19,10 +20,9 @@ import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class DashboardPaneController implements Initializable {
 
@@ -51,26 +51,46 @@ public class DashboardPaneController implements Initializable {
     @FXML
     private Pane dashboardPane;
 
+    public String getSearch() {
+        return Search;
+    }
+
+    public void setSearch(String search) {
+        this.Search = search;
+    }
+
+    private static String Search;
+
+
     public void initialize(URL url, ResourceBundle resourceBundle) {
         movie(scrollPane_TopMovies2,scrollPane_NewMovies2);
     }
     public void movie(ScrollPane scrollPane_TopMovies,ScrollPane scrollPane_NewMovies){
+
+        DashboardController dash = new DashboardController();
+        HashMap<String, String> images = dash.images;
 
         File file = new File("src/main/java/pictures");
         HBox hBox = new HBox(); // for scrollpane
         hBox.setAlignment(Pos.BASELINE_CENTER);
 
         try {
-            hBox.getChildren().addAll(
-                    createCustomNode("TOP GUN", "movie_1.jpeg", file.toURI().toURL().toString() + "movie_1.jpeg", 1),
-                    createCustomNode("Matrix", "movie_3", file.toURI().toURL().toString() + "movie_3.jpeg", 2),
-                    createCustomNode("Interstellar", "movie_4", file.toURI().toURL().toString() + "movie_4.jpg", 3),
-                    createCustomNode("Inception", "movie_5", file.toURI().toURL().toString() + "movie_5.jpg", 4),
-                    createCustomNode("The Dark Knight", "movie_6", file.toURI().toURL().toString() + "movie_6.jpg", 5),
-                    createCustomNode("LUCY", "movie_7", file.toURI().toURL().toString() + "movie_7.jpg", 6),
-                    createCustomNode("WEDNESDAY", "movie_8.jpg", file.toURI().toURL().toString() + "movie_8.jpg", 7),
-                    createCustomNode("Forrest Gump", "movie_10", file.toURI().toURL().toString() + "movie_10.jpg", 8),
-                    createCustomNode("Nope", "verMovie_2", file.toURI().toURL().toString() + "verMovie_2.jpeg", 9));
+            List<AdminMovie> movieList;
+            String sql;
+            if (Search.isEmpty()||Search==null){
+                sql = "SELECT * FROM `movies`";
+            }else {
+                sql = "SELECT * FROM `movies` WHERE title LIKE '%"+Search+"%' OR genre LIKE '%"+Search+"%' OR language LIKE '%"+Search+"%'";
+            }
+            try {
+                movieList = movies(sql);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+            for (int i = 0; i < movieList.size(); i++) {
+                hBox.getChildren().addAll(
+                        createCustomNode(movieList.get(i).getTitle(), images.get(movieList.get(i).getTitle()), file.toURI().toURL().toString() + images.get(movieList.get(i).getTitle()), i));
+            }
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
@@ -78,17 +98,19 @@ public class DashboardPaneController implements Initializable {
 
         HBox hbox = new HBox();
         hbox.setAlignment(Pos.BASELINE_CENTER);
+        List<AdminMovie> movieList;
+        String sql;
+        sql = "SELECT * FROM `movies`";
         try {
-            hbox.getChildren().addAll(
-                    createCustomNode("Puss in Boots", "new_movie1", file.toURI().toURL().toString() + "new_movie1.jpg", 10),
-                    createCustomNode("Avatar II ", "new_movie2", file.toURI().toURL().toString() + "new_movie2.jpg", 11),
-                    createCustomNode("High Heat", "new_movie3", file.toURI().toURL().toString() + "new_movie3.jpg", 12),
-                    createCustomNode("Violent Night", "new_movie4", file.toURI().toURL().toString() + "new_movie4.jpg", 13),
-                    createCustomNode("Troll", "new_movie5", file.toURI().toURL().toString() + "new_movie5.jpg", 14),
-                    createCustomNode("Wakanda Forever", "new_movie6", file.toURI().toURL().toString() + "new_movie6.jpg", 15),
-                    createCustomNode("Detective Knight", "new_movie7", file.toURI().toURL().toString() + "new_movie7.jpg", 16),
-                    createCustomNode("The Woman King", "new_movie8", file.toURI().toURL().toString() + "new_movie8.jpg", 17),
-                    createCustomNode("All Quiet on the Western Front", "movie_9", file.toURI().toURL().toString() + "movie_9.jpg", 18));
+            movieList = movies(sql);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        try {
+            for (int i = 0; i < movieList.size(); i++) {
+                hbox.getChildren().addAll(
+                        createCustomNode(movieList.get(i).getTitle(), images.get(movieList.get(i).getTitle()), file.toURI().toURL().toString() + images.get(movieList.get(i).getTitle()), i));
+            }
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
@@ -112,38 +134,13 @@ public class DashboardPaneController implements Initializable {
 
         // For 1 vertical column
         VBox vBox1 = new VBox();
-//        Button button = new Button();
-//        button.setMaxWidth(150);
-//        button.setMaxHeight(210);
-//        button.setGraphic(imageView);
-//        button.setStyle("-fx-background-color: transparent;" + "-fx-cursor:hand;");
-//
         Label label = new Label(movieName);
         label.setStyle("-fx-text-fill:white;" + "-fx-font-weight: 700;");
         vBox1.setSpacing(10);
         vBox1.getChildren().add(imageView);
-//        vBox1.getChildren().add(button);
         vBox1.getChildren().add(label);
         vBox1.setStyle("-fx-padding: 5;");
         vBox1.setAlignment(Pos.CENTER);
-//
-//
-//        //Giving onAction command to the movie  button
-//
-//        button.setOnAction(new EventHandler<ActionEvent>() {
-//            @Override
-//            public void handle(ActionEvent actionEvent) {
-//                Parent fxml;
-//                try {
-//                    fxml = FXMLLoader.load(getClass().getResource("Asilbeks_Version_MoviePage.fxml"));
-//                } catch (IOException e) {
-//                    throw new RuntimeException(e);
-//                }
-//                dashboardPane.getChildren().removeAll();
-//                dashboardPane.getChildren().setAll(fxml);
-//
-//            }
-//        });
         return vBox1;
     }
 
@@ -163,5 +160,25 @@ public class DashboardPaneController implements Initializable {
         dashboardPane.getChildren().removeAll();
         dashboardPane.getChildren().setAll(fxml);
 
+    }
+
+    public List<AdminMovie> movies(String sql) throws SQLException {
+        DataBaseConnect db = new DataBaseConnect();
+        List<AdminMovie> result = new ArrayList<>();
+        ResultSet resultSet = db.getMovies(sql);
+        while (resultSet.next()) {
+            AdminMovie adminMovie = new AdminMovie();
+            adminMovie.setStartDate(resultSet.getDate("start_date"));
+            adminMovie.setEndDate(resultSet.getDate("end_date"));
+            adminMovie.setSession(resultSet.getString("session"));
+            adminMovie.setTitle(resultSet.getString("title"));
+            adminMovie.setLanguage(resultSet.getString("language"));
+            adminMovie.setPrice(resultSet.getInt("price"));
+            adminMovie.setGenre(resultSet.getString("genre"));
+            adminMovie.setDescription(resultSet.getString("description"));
+            adminMovie.setNumberTickets(resultSet.getInt("number_tickets"));
+            result.add(adminMovie);
+        }
+        return result;
     }
 }

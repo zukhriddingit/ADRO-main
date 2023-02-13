@@ -54,7 +54,6 @@ public class DataBaseConnect {
 
     public static AdminMovie dashMovie(int id) throws SQLException {
         PreparedStatement ps=getConnect().prepareStatement("SELECT * FROM `movies` WHERE id="+id);
-        System.out.println("IS this working?");
         ResultSet r= ps.executeQuery();
         AdminMovie adminMovie = new AdminMovie();
         if (r.next()){
@@ -68,9 +67,13 @@ public class DataBaseConnect {
             adminMovie.setNumberTickets(r.getInt("number_tickets"));
             adminMovie.setStartDate(r.getDate("start_date"));
             adminMovie.setEndDate(r.getDate("end_date"));
-            System.out.println(r.getString("title"));
         }
         return adminMovie;
+    }
+
+    public ResultSet getMovies(String sql) throws SQLException {
+        PreparedStatement ps = getConnect().prepareStatement(sql);
+        return ps.executeQuery();
     }
 
     public static void main(String[] args) throws SQLException {
