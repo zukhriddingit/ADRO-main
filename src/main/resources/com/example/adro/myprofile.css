@@ -33,3 +33,11 @@
 .logout:hover{
     -fx-background-color:#a10404;
 }
+.cancel{
+    -fx-background-color:#bc730e;
+    -fx-text-fill:white;
+    -fx-cursor:hand;
+}
+.cancel:hover{
+    -fx-background-color:#d35501;
+}

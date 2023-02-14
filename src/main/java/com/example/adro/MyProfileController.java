@@ -1,15 +1,19 @@
 package com.example.adro;
 
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
@@ -57,7 +61,8 @@ public class MyProfileController implements Initializable {
     private TextField TextfillNum;
 
     @FXML
-    private TextField TextfillPassword;
+    private DatePicker DatePicker;
+
 
     @FXML
     private TextField TextfillUserName;
@@ -65,6 +70,10 @@ public class MyProfileController implements Initializable {
     private BorderPane border;
     @FXML
     private VBox text;
+
+    @FXML
+    private Pane pane;
+
 
     private static String username;
 
@@ -87,17 +96,17 @@ public class MyProfileController implements Initializable {
             throw new RuntimeException(e);
         }
 
-        DataBaseConnect db = new DataBaseConnect();
-        try {
-            ResultSet r = db.getInfo(username);
-            r.next();
-            UsernName.setText(r.getString("username"));
-            FullName.setText(r.getString("fullname"));
-            Email.setText(r.getString("email"));
-            Number.setText(r.getString("phone"));
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+//        DataBaseConnect db = new DataBaseConnect();
+//        try {
+//            ResultSet r = db.getInfo(username);
+//            r.next();
+//            UsernName.setText(r.getString("username"));
+//            FullName.setText(r.getString("fullname"));
+//            Email.setText(r.getString("email"));
+//            Number.setText(r.getString("phone"));
+//        } catch (SQLException e) {
+//            throw new RuntimeException(e);
+//        }
 
 //        try {
 //            Image image = new Image(file.toURI().toURL().toString()+"user.png");
@@ -105,21 +114,23 @@ public class MyProfileController implements Initializable {
 //        } catch (MalformedURLException e) {
 //            throw new RuntimeException(e);
 //        }
-//        LogoutBtn.setOnAction(new EventHandler<ActionEvent>() {
-//
-//            @Override
-//            public void handle(ActionEvent actionEvent) {
-//                Parent fxml = null;
-//                try {
-//                    fxml= FXMLLoader.load(getClass().getResource("Login.fxml"));
-//                } catch (IOException e) {
-//                    throw new RuntimeException(e);
-//                }
-//                border.getChildren().removeAll();
-//                border.getChildren().setAll(fxml);
-//            }
-//        });
+        Editbtn.setOnAction(new EventHandler<ActionEvent>() {
+
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                Parent fxml = null;
+                try {
+                    fxml= FXMLLoader.load(getClass().getResource("editpage.fxml"));
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+                pane.getChildren().removeAll();
+                pane.getChildren().setAll(fxml);
+            }
+        });
+
     }
+
 
     public void signOut(ActionEvent event) throws IOException {
         Node node = (Node)event.getSource();
