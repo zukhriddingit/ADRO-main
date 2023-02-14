@@ -196,4 +196,10 @@ public class AdminPanelController implements Initializable {
         dialogStage.setScene(scene);
         dialogStage.show();
     }
+
+    public void deleteAction(ActionEvent event) {
+    }
+
+    public void editAction(ActionEvent event) {
+    }
 }

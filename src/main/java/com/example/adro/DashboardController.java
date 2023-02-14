@@ -46,6 +46,13 @@ public class DashboardController implements Initializable {
     @FXML
     private TextField Search;
 
+    public TextField getSearch() {
+        return Search;
+    }
+
+    public void setSearch(TextField search) {
+        Search = search;
+    }
 //    ObservableList<AdminMovie> searchObservableList = FXCollections.observableArrayList();
 
     HashMap<String, String> images = new HashMap<String, String>() {{
@@ -69,6 +76,9 @@ public class DashboardController implements Initializable {
         put("ALL QUIET ON THE WESTERN FRONT", "movie_9");
     }};
 
+    public void setDashboardPane(Pane dashboardPane) {
+        this.dashboardPane = dashboardPane;
+    }
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
 

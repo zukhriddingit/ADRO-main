@@ -52,24 +52,25 @@
                         <Insets left="10.0" right="10.0" />
                      </HBox.margin>
                   </Button>
-                    </children>
-                </HBox>
-            </top>
+               </children>
+            </HBox>
+         </top>
          <center>
-                <TableView fx:id="tableAdmin" prefHeight="628.0" prefWidth="1434.0" style="-fx-background-color: #7E909A;" BorderPane.alignment="CENTER">
-                    <columns>
-                        <TableColumn fx:id="MovieTitle" prefWidth="174.3999900817871" style="-fx-font-size: 15px;" text="Movie Title" />
-                        <TableColumn fx:id="MovieDescription" prefWidth="169.59999084472656" style="-fx-font-size: 15px;" text="Description" />
-                        <TableColumn fx:id="Genre" minWidth="0.0" prefWidth="64.0" style="-fx-font-size: 15px;" text="Genre" />
-                        <TableColumn fx:id="Lang" prefWidth="99.20001220703125" style="-fx-font-size: 15px;" text="Language" />
-                  <TableColumn fx:id="Duration" prefWidth="100.7999267578125" style="-fx-font-size: 15px;" text="Duration" />
-                  <TableColumn fx:id="Session" prefWidth="89.5999755859375" style="-fx-font-size: 15px;" text="Session" />
-                  <TableColumn fx:id="Price1" prefWidth="68.00006103515625" style="-fx-font-size: 15px;" text="IMDB" />
-                  <TableColumn fx:id="Price11" prefWidth="104.00006103515625" style="-fx-font-size: 15px;" text="Release year" />
-                  <TableColumn fx:id="StartDate" prefWidth="84.79998779296875" style="-fx-font-size: 15px;" text="S-Date" />
-                  <TableColumn fx:id="EndDate" prefWidth="64.800048828125" style="-fx-font-size: 15px;" text="E-Date" />
-                  <TableColumn fx:id="NumberTickets" prefWidth="79.2000732421875" style="-fx-font-size: 15px;" text="Tickets" />
-                  <TableColumn fx:id="Price" prefWidth="69.5999755859375" style="-fx-font-size: 15px;" text="Price" />
+            <TableView fx:id="table" prefHeight="628.0" prefWidth="1434.0" style="-fx-background-color: #7E909A;" BorderPane.alignment="CENTER">
+               <columns>
+                  <TableColumn fx:id="MovieTitle" prefWidth="156.0" style="-fx-font-size: 15px;" text="Movie Title" />
+                  <TableColumn fx:id="MovieDescription" prefWidth="185.0" style="-fx-font-size: 15px;" text="Description" />
+                  <TableColumn fx:id="Genre" minWidth="0.0" prefWidth="116.0" style="-fx-font-size: 15px;" text="Genre" />
+                  <TableColumn fx:id="Lang" prefWidth="96.0" style="-fx-font-size: 15px;" text="Language" />
+                  <TableColumn fx:id="Duration" prefWidth="85.0" style="-fx-font-size: 15px;" text="Duration" />
+                  <TableColumn fx:id="Session" prefWidth="83.0" style="-fx-font-size: 15px;" text="Session" />
+                  <TableColumn fx:id="Price1" prefWidth="61.0" style="-fx-font-size: 15px;" text="IMDB" />
+                  <TableColumn fx:id="Price11" prefWidth="96.0" style="-fx-font-size: 15px;" text="Release year" />
+                  <TableColumn fx:id="StartDate" prefWidth="85.0" style="-fx-font-size: 15px;" text="S-Date" />
+                  <TableColumn fx:id="EndDate" prefWidth="94.0" style="-fx-font-size: 15px;" text="E-Date" />
+                  <TableColumn fx:id="NumberTickets" prefWidth="77.0" style="-fx-font-size: 15px;" text="Tickets" />
+                  <TableColumn fx:id="Price" prefWidth="47.0" style="-fx-font-size: 15px;" text="Price" />
+                  <TableColumn fx:id="MovieDescription1" prefWidth="163.0" style="-fx-font-size: 15px;" text="Image path" />
                </columns>
                <BorderPane.margin>
                   <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />

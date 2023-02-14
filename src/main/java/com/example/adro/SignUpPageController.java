@@ -60,7 +60,7 @@ public class SignUpPageController implements Initializable {
         if (fullname.getText().isEmpty()||email.getText().isEmpty()||phoneNum.getText().isEmpty()||userName.getText().isEmpty()||password.getText().isEmpty()||dateOfBirth.getValue().toString().isEmpty()){
             errorMsg.setText("Every field should be filled!");
         }else if (!emailValidate()){
-            errorMsg.setText("Email should contain '@'");
+            errorMsg.setText("Please, enter a valid email!");
         } else if (!phoneValidate(phoneNum.getText())){
             errorMsg.setText("Please, enter true form of phone number!");
         } else if (!birthDateValidate()) {
@@ -116,7 +116,7 @@ public class SignUpPageController implements Initializable {
 
     private boolean phoneValidate(String phone){
         if (phone.length()==9){
-            if (phone.startsWith("93")||phone.startsWith("91")||phone.startsWith("94")||phone.startsWith("97")||phone.startsWith("99")||phone.startsWith("88")||phone.startsWith("33")){
+            if (phone.startsWith("93")||phone.startsWith("91")||phone.startsWith("94")||phone.startsWith("97")||phone.startsWith("90")||phone.startsWith("95")||phone.startsWith("99")||phone.startsWith("88")||phone.startsWith("33")){
                 for (int i=2;i<phone.length();i++){
                     if (!Character.isDigit(phone.charAt(i))) return false;
                 }

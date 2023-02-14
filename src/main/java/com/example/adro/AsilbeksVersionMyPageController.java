@@ -1,16 +1,18 @@
 package com.example.adro;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Insets;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -96,5 +98,17 @@ public class AsilbeksVersionMyPageController implements Initializable{
         }
 
 
+    }
+
+    public void addToCart(ActionEvent event) throws IOException {
+        Node node = (Node)event.getSource();
+        Stage dialogStage = (Stage) node.getScene().getWindow();
+        dialogStage.close();
+        Scene scene = new Scene(FXMLLoader.load(getClass().getResource("CartPage.fxml")),1366,700);
+        dialogStage.setScene(scene);
+        dialogStage.show();
+//        FXMLLoader fxmlLoader = new FXMLLoader(SignUpPageApplication.class.getResource("Dashboard.fxml"));
+//        Scene scene = new Scene(fxmlLoader.load(), 1300, 700);
+//        dc.searchAction(scene);
     }
 }
