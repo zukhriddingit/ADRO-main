@@ -121,15 +121,6 @@ public class AdminPanelController implements Initializable {
         combo_session.getItems().addAll(sessions);
     }
 
-
-    public void editAction(ActionEvent event) {
-
-    }
-
-    public void deleteAction(ActionEvent event) {
-        loadData();
-    }
-
     public void addAction(ActionEvent event) throws SQLException {
         DataBaseConnect dataCon = new DataBaseConnect();
         if (isNumeric(movieDuration.getText())&&isNumeric(moviePrice.getText())&&isNumeric(numberTickets.getText())){

@@ -25,7 +25,7 @@
                         <ImageView fx:id="imported" fitHeight="227.0" fitWidth="190.0" pickOnBounds="true" preserveRatio="true" />
                     </children>
                 </StackPane>
-                <Button fx:id="importImage" mnemonicParsing="false" text="Add/Edit a poster">
+                <Button fx:id="importImage" mnemonicParsing="false" onMouseClicked="#editAction" text="Add/Edit a poster">
                     <VBox.margin>
                         <Insets bottom="25.0" />
                     </VBox.margin>
