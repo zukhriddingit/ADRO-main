@@ -3,9 +3,9 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
@@ -14,37 +14,71 @@
       <VBox alignment="CENTER" prefHeight="535.0" prefWidth="295.0" styleClass="left" stylesheets="@myprofile.css" BorderPane.alignment="TOP_CENTER">
          <children>
             <VBox alignment="CENTER" prefHeight="191.0" prefWidth="218.0">
-               <VBox.margin>
-                  <Insets top="30.0" />
-               </VBox.margin>
                <children>
                   <ImageView fx:id="userImage" fitHeight="174.0" fitWidth="219.0" pickOnBounds="true" preserveRatio="true" />
                </children>
             </VBox>
-            <Label fx:id="FullName" prefHeight="28.0" prefWidth="168.0" textFill="WHITE">
-               <VBox.margin>
-                  <Insets bottom="10.0" />
-               </VBox.margin>
-            </Label>
-            <Label fx:id="Email" prefHeight="28.0" prefWidth="168.0" textFill="WHITE">
-               <VBox.margin>
-                  <Insets bottom="10.0" />
-               </VBox.margin>
-            </Label>
-            <Label fx:id="Number" prefHeight="28.0" prefWidth="168.0" textFill="WHITE">
-               <VBox.margin>
-                  <Insets bottom="10.0" />
-               </VBox.margin>
-            </Label>
-            <Label fx:id="UsernName" prefHeight="28.0" prefWidth="168.0" textFill="WHITE">
-               <VBox.margin>
-                  <Insets bottom="10.0" />
-               </VBox.margin>
-            </Label>
+            <HBox prefHeight="213.0" prefWidth="291.0">
+               <children>
+                  <VBox prefHeight="187.0" prefWidth="110.0">
+                     <children>
+                        <Label prefHeight="28.0" prefWidth="96.0" text="Full Name" textFill="WHITE">
+                           <VBox.margin>
+                              <Insets bottom="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label prefHeight="33.0" prefWidth="94.0" text="Email" textFill="WHITE">
+                           <VBox.margin>
+                              <Insets bottom="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label prefHeight="25.0" prefWidth="104.0" text="Number" textFill="WHITE">
+                           <VBox.margin>
+                              <Insets bottom="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label prefHeight="28.0" prefWidth="104.0" text="User name" textFill="WHITE">
+                           <VBox.margin>
+                              <Insets bottom="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label prefHeight="24.0" prefWidth="93.0" text="Date of Birth" textFill="WHITE" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="187.0" prefWidth="187.0">
+                     <children>
+                        <Label fx:id="FullName" prefHeight="28.0" prefWidth="168.0" textFill="WHITE">
+                           <VBox.margin>
+                              <Insets bottom="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label fx:id="Email" prefHeight="28.0" prefWidth="168.0" textFill="WHITE">
+                           <VBox.margin>
+                              <Insets bottom="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label fx:id="Number" prefHeight="30.0" prefWidth="168.0" textFill="WHITE">
+                           <VBox.margin>
+                              <Insets bottom="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label fx:id="UsernName" prefHeight="28.0" prefWidth="168.0" textFill="WHITE">
+                           <VBox.margin>
+                              <Insets bottom="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label prefHeight="28.0" prefWidth="168.0" textFill="WHITE" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
             <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0">
                <children>
                   <Button fx:id="Editbtn" layoutX="105.0" layoutY="56.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="59.0" styleClass="editbtn" stylesheets="@myprofile.css" text="Edit" textFill="#f8f8f8" />
+
+
                   <Button fx:id="LogoutBtn" alignment="CENTER" layoutX="211.0" layoutY="145.0" mnemonicParsing="false" onAction="#signOut" styleClass="logout" stylesheets="@myprofile.css" text="Log out" />
+
                </children>
             </Pane>
          </children>
@@ -57,19 +91,6 @@
       </VBox>
    </left>
    <center>
-      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <children>
-            <Pane layoutX="-2.0" layoutY="88.0" prefHeight="312.0" prefWidth="660.0">
-               <children>
-                  <TextField fx:id="TextfillFullname" layoutX="175.0" layoutY="37.0" prefHeight="25.0" prefWidth="266.0" />
-                  <TextField fx:id="TextfillUserName" layoutX="175.0" layoutY="181.0" prefHeight="25.0" prefWidth="266.0" />
-                  <TextField fx:id="TextfillNum" layoutX="175.0" layoutY="131.0" prefHeight="25.0" prefWidth="266.0" />
-                  <TextField fx:id="TextfillEmail" layoutX="175.0" layoutY="84.0" prefHeight="25.0" prefWidth="266.0" />
-                  <TextField fx:id="TextfillPassword" layoutX="175.0" layoutY="227.0" prefHeight="25.0" prefWidth="266.0" />
-               </children>
-            </Pane>
-            <Button fx:id="Savebtn" layoutX="542.0" layoutY="400.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" styleClass="save" stylesheets="@myprofile.css" text="Save" />
-         </children>
-      </Pane>
+      <Pane fx:id="pane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
    </center>
 </BorderPane>
