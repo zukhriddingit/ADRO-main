@@ -8,8 +8,12 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.FileChooser;
 
+import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -60,10 +64,26 @@ public class EditFormController implements Initializable {
     @FXML
     private TextField release_year;
 
-    @FXML
-    void editAction(ActionEvent event) {
+    private File file;
 
+    @FXML
+    void editAction(MouseEvent mouseEvent) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("PNG","*.png"),
+                new FileChooser.ExtensionFilter("JPG", "*.jpg"),
+                new FileChooser.ExtensionFilter("JPEG", "*.jpeg")
+        );
+        file = fileChooser.showOpenDialog(null);
+        if (file != null){
+            System.out.println(file);
+            imported.setImage(new Image("file:"+file));
+            System.out.println(file.getAbsolutePath());
+        }else{
+            System.out.println("null");
+        }
     }
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

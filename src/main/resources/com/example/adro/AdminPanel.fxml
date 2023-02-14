@@ -52,16 +52,16 @@
                         <Insets left="10.0" right="10.0" />
                      </HBox.margin>
                   </Button>
-               </children>
-            </HBox>
-         </top>
+                    </children>
+                </HBox>
+            </top>
          <center>
-            <TableView fx:id="table" prefHeight="628.0" prefWidth="1434.0" style="-fx-background-color: #7E909A;" BorderPane.alignment="CENTER">
-               <columns>
-                  <TableColumn fx:id="MovieTitle" prefWidth="174.3999900817871" style="-fx-font-size: 15px;" text="Movie Title" />
-                  <TableColumn fx:id="MovieDescription" prefWidth="169.59999084472656" style="-fx-font-size: 15px;" text="Description" />
-                  <TableColumn fx:id="Genre" minWidth="0.0" prefWidth="64.0" style="-fx-font-size: 15px;" text="Genre" />
-                  <TableColumn fx:id="Lang" prefWidth="99.20001220703125" style="-fx-font-size: 15px;" text="Language" />
+                <TableView fx:id="tableAdmin" prefHeight="628.0" prefWidth="1434.0" style="-fx-background-color: #7E909A;" BorderPane.alignment="CENTER">
+                    <columns>
+                        <TableColumn fx:id="MovieTitle" prefWidth="174.3999900817871" style="-fx-font-size: 15px;" text="Movie Title" />
+                        <TableColumn fx:id="MovieDescription" prefWidth="169.59999084472656" style="-fx-font-size: 15px;" text="Description" />
+                        <TableColumn fx:id="Genre" minWidth="0.0" prefWidth="64.0" style="-fx-font-size: 15px;" text="Genre" />
+                        <TableColumn fx:id="Lang" prefWidth="99.20001220703125" style="-fx-font-size: 15px;" text="Language" />
                   <TableColumn fx:id="Duration" prefWidth="100.7999267578125" style="-fx-font-size: 15px;" text="Duration" />
                   <TableColumn fx:id="Session" prefWidth="89.5999755859375" style="-fx-font-size: 15px;" text="Session" />
                   <TableColumn fx:id="Price1" prefWidth="68.00006103515625" style="-fx-font-size: 15px;" text="IMDB" />
