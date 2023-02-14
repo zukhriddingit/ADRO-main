@@ -44,7 +44,7 @@
             <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0">
                <children>
                   <Button fx:id="Editbtn" layoutX="105.0" layoutY="56.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="59.0" styleClass="editbtn" stylesheets="@myprofile.css" text="Edit" textFill="#f8f8f8" />
-                  <Button fx:id="LogoutBtn" alignment="CENTER" layoutX="211.0" layoutY="145.0" mnemonicParsing="false" styleClass="logout" stylesheets="@myprofile.css" text="Log out" />
+                  <Button fx:id="LogoutBtn" alignment="CENTER" layoutX="211.0" layoutY="145.0" mnemonicParsing="false" onAction="#signOut" styleClass="logout" stylesheets="@myprofile.css" text="Log out" />
                </children>
             </Pane>
          </children>
@@ -57,25 +57,19 @@
       </VBox>
    </left>
    <center>
-      <VBox alignment="TOP_CENTER" prefHeight="535.0" prefWidth="688.0" spacing="25.0" BorderPane.alignment="CENTER">
-         <BorderPane.margin>
-            <Insets />
-         </BorderPane.margin>
+      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <TextField fx:id="TextfillFullname" />
-            <TextField fx:id="TextfillEmail" />
-            <TextField fx:id="TextfillNum" />
-            <TextField fx:id="TextfillUserName" />
-            <TextField fx:id="TextfillPassword" />
-            <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0">
+            <Pane layoutX="-2.0" layoutY="88.0" prefHeight="312.0" prefWidth="660.0">
                <children>
-                  <Button fx:id="Savebtn" layoutX="570.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="51.0" styleClass="save" stylesheets="@myprofile.css" text="Save" textFill="WHITE" />
+                  <TextField fx:id="TextfillFullname" layoutX="175.0" layoutY="37.0" prefHeight="25.0" prefWidth="266.0" />
+                  <TextField fx:id="TextfillUserName" layoutX="175.0" layoutY="181.0" prefHeight="25.0" prefWidth="266.0" />
+                  <TextField fx:id="TextfillNum" layoutX="175.0" layoutY="131.0" prefHeight="25.0" prefWidth="266.0" />
+                  <TextField fx:id="TextfillEmail" layoutX="175.0" layoutY="84.0" prefHeight="25.0" prefWidth="266.0" />
+                  <TextField fx:id="TextfillPassword" layoutX="175.0" layoutY="227.0" prefHeight="25.0" prefWidth="266.0" />
                </children>
             </Pane>
+            <Button fx:id="Savebtn" layoutX="542.0" layoutY="400.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" styleClass="save" stylesheets="@myprofile.css" text="Save" />
          </children>
-         <padding>
-            <Insets top="100.0" />
-         </padding>
-      </VBox>
+      </Pane>
    </center>
 </BorderPane>

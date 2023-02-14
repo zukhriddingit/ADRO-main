@@ -64,12 +64,12 @@ public class MyProfileController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         File file = new File("src/main/java/pictures");
-//        try {
-//            Image image = new Image(file.toURI().toURL().toString()+"user.png");
-//            userImage.setImage(image);
-//        } catch (MalformedURLException e) {
-//            throw new RuntimeException(e);
-//        }
+        try {
+            Image image = new Image(file.toURI().toURL().toString()+"user.png");
+            userImage.setImage(image);
+        } catch (MalformedURLException e) {
+            throw new RuntimeException(e);
+        }
 //        LogoutBtn.setOnAction(new EventHandler<ActionEvent>() {
 //
 //            @Override

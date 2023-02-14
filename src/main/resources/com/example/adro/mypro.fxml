@@ -25,6 +25,6 @@
          </children>
       </VBox>
       <Button contentDisplay="BOTTOM" layoutX="288.0" layoutY="484.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="94.0" text="Update profile" />
-      <Button layoutX="571.0" onAction="#signOut" layoutY="484.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="95.0" text="Sign out" />
+      <Button layoutX="571.0" layoutY="484.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="95.0" text="Sign out" />
    </children>
 </Pane>
