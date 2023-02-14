@@ -11,6 +11,7 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="744.0" prefWidth="1529.0" style="-fx-background-color: #cddbc4;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.adro.AdminPanelController">
+<<<<<<< HEAD
     <children>
         <BorderPane layoutX="175.0" layoutY="6.0" prefHeight="394.0" prefWidth="600.0" style="-fx-background-color: #cddbc4;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="6.0">
             <top>
@@ -22,6 +23,19 @@
                                 <Font name="System Bold" size="27.0" />
                             </font>
                         </Label>
+=======
+   <children>
+      <BorderPane layoutX="175.0" layoutY="6.0" prefHeight="394.0" prefWidth="600.0" style="-fx-background-color: #cddbc4;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="6.0">
+         <top>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="1557.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button fx:id="homeButton" mnemonicParsing="false" onAction="#back" prefHeight="41.0" prefWidth="102.0" style="-fx-background-color: transparent; -fx-font-weight: bold; -fx-border-color: black; -fx-font-size: 24px;" text="ADRO" textFill="#7400fa" />
+                  <Label fx:id="welcomeText" alignment="CENTER" contentDisplay="CENTER" prefHeight="56.0" prefWidth="938.0" text="Admin Panel" textFill="#468189">
+                     <font>
+                        <Font name="System Bold" size="27.0" />
+                     </font>
+                  </Label>
+>>>>>>> 395a3f5d92bb14e6287000698041d25ea25c2a1a
                   <Button fx:id="addMovieBtn1" mnemonicParsing="false" onAction="#addAction" prefHeight="50.0" prefWidth="120.0" style="-fx-background-color: green; -fx-background-radius: 30;" text="ADD" textFill="WHITE">
                      <font>
                         <Font size="21.0" />
@@ -70,6 +84,7 @@
                   <TableColumn fx:id="EndDate" prefWidth="64.800048828125" style="-fx-font-size: 15px;" text="E-Date" />
                   <TableColumn fx:id="NumberTickets" prefWidth="79.2000732421875" style="-fx-font-size: 15px;" text="Tickets" />
                   <TableColumn fx:id="Price" prefWidth="69.5999755859375" style="-fx-font-size: 15px;" text="Price" />
+<<<<<<< HEAD
                     </columns>
                <BorderPane.margin>
                   <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
@@ -79,3 +94,14 @@
         </BorderPane>
     </children>
 </AnchorPane>
+=======
+               </columns>
+               <BorderPane.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </BorderPane.margin>
+            </TableView>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>
+>>>>>>> 395a3f5d92bb14e6287000698041d25ea25c2a1a

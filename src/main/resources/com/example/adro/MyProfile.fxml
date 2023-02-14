@@ -26,17 +26,17 @@
                   <Insets bottom="10.0" />
                </VBox.margin>
             </Label>
-            <Label fx:id="email" prefHeight="28.0" prefWidth="168.0" textFill="WHITE">
+            <Label fx:id="Email" prefHeight="28.0" prefWidth="168.0" textFill="WHITE">
                <VBox.margin>
                   <Insets bottom="10.0" />
                </VBox.margin>
             </Label>
-            <Label fx:id="number" prefHeight="28.0" prefWidth="168.0" textFill="WHITE">
+            <Label fx:id="Number" prefHeight="28.0" prefWidth="168.0" textFill="WHITE">
                <VBox.margin>
                   <Insets bottom="10.0" />
                </VBox.margin>
             </Label>
-            <Label fx:id="usernName" prefHeight="28.0" prefWidth="168.0" textFill="WHITE">
+            <Label fx:id="UsernName" prefHeight="28.0" prefWidth="168.0" textFill="WHITE">
                <VBox.margin>
                   <Insets bottom="10.0" />
                </VBox.margin>
@@ -44,7 +44,7 @@
             <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0">
                <children>
                   <Button fx:id="Editbtn" layoutX="105.0" layoutY="56.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="59.0" styleClass="editbtn" stylesheets="@myprofile.css" text="Edit" textFill="#f8f8f8" />
-                  <Button fx:id="LogoutBtn" alignment="CENTER" layoutX="211.0" layoutY="145.0" mnemonicParsing="false" styleClass="logout" stylesheets="@myprofile.css" text="Log out" />
+                  <Button fx:id="LogoutBtn" onAction="#signOut" alignment="CENTER" layoutX="211.0" layoutY="145.0" mnemonicParsing="false" styleClass="logout" stylesheets="@myprofile.css" text="Log out" />
                </children>
             </Pane>
          </children>
