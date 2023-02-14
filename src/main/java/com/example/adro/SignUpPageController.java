@@ -17,7 +17,12 @@ import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.sql.Date;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.Period;
+import java.util.Calendar;
 import java.util.ResourceBundle;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -58,8 +63,9 @@ public class SignUpPageController implements Initializable {
             errorMsg.setText("Email should contain '@'");
         } else if (!phoneValidate(phoneNum.getText())){
             errorMsg.setText("Please, enter true form of phone number!");
-        }
-        else if(dataBaseConnect.getInfo(userName.getText()).next()){
+        } else if (!birthDateValidate()) {
+            errorMsg.setText("Minimum age required is 16!");
+        } else if(dataBaseConnect.getInfo(userName.getText()).next()){
             errorMsg.setText("This username already exists!");
         }else {
             dataBaseConnect.insertData(sql);
@@ -117,6 +123,16 @@ public class SignUpPageController implements Initializable {
                 return true;
             }else return false;
         } else {
+            return false;
+        }
+    }
+
+    private boolean birthDateValidate(){
+        LocalDate localDate = dateOfBirth.getValue();
+        LocalDate currentPeriod = LocalDate.now();
+        if (Period.between(localDate, currentPeriod).getYears()>=16){
+            return true;
+        }else{
             return false;
         }
     }
