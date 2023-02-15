@@ -69,15 +69,6 @@ public class AdminPanelController implements Initializable {
     private Button editButton;
 
     @FXML
-    private ComboBox<String> combo_genre;
-
-    @FXML
-    private ComboBox<String> combo_languages;
-
-    @FXML
-    private ComboBox<String> combo_session;
-
-    @FXML
     private TextArea movieDescription;
 
     @FXML
@@ -111,33 +102,6 @@ public class AdminPanelController implements Initializable {
     Movie movie = null;
     ObservableList<AdminMovie> MovielistAdmin = FXCollections.observableArrayList();
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        String[] genres = {"Action", "Thriller", "Comedy", "Horror"};
-        combo_genre.getItems().addAll(genres);
-        String[] languages = {"English", "Russian", "Uzbek"};
-        combo_languages.getItems().addAll(languages);
-        String[] sessions = {"10:00", "12:00", "15:00", "18:00", "21:00"};
-        combo_session.getItems().addAll(sessions);
-    }
-
-    public void addAction(ActionEvent event) throws SQLException {
-        DataBaseConnect dataCon = new DataBaseConnect();
-        if (isNumeric(movieDuration.getText())&&isNumeric(moviePrice.getText())&&isNumeric(numberTickets.getText())){
-            String sql = "INSERT INTO `movies` (`title`, `description`, `genre`, `language`, `duration`, `number_tickets`, `session`, `start_date`, `end_date`, `price`) VALUES ('"+movieTitle.getText()+"','"+movieDescription.getText()+"','"+combo_genre.getValue()+"','"+combo_languages.getValue()+"','"+Integer.valueOf(movieDuration.getText())+"','"+Integer.valueOf(numberTickets.getText())+"','"+combo_session.getValue()+"','"+movieStartDate.getValue()+"','"+movieEndDate.getValue()+"','"+Integer.valueOf(moviePrice.getText())+"')";
-            dataCon.insertData(sql);
-            loadData();
-        }else System.out.println("Something went wrong");
-    }
-
-    public boolean isNumeric(String val){
-        try{
-            Integer.valueOf(val);
-            return true;
-        }catch(Exception e){
-            return false;
-        }
-    }
 
     // for Table
     private void refreshable() throws SQLException {
@@ -167,6 +131,16 @@ public class AdminPanelController implements Initializable {
         }
     }
 
+
+    public void back(Event event) throws IOException {
+        Node node = (Node)event.getSource();
+        Stage dialogStage = (Stage) node.getScene().getWindow();
+        dialogStage.close();
+        Scene scene = new Scene(FXMLLoader.load(getClass().getResource("Login.fxml")));
+        dialogStage.setScene(scene);
+        dialogStage.show();
+    }
+
     private void loadData() {
         connection = DataBaseConnect.getConnect();
         try {
@@ -188,18 +162,37 @@ public class AdminPanelController implements Initializable {
         EndDate.setCellValueFactory(new PropertyValueFactory<>("endDate"));
     }
 
-    public void back(Event event) throws IOException {
-        Node node = (Node)event.getSource();
-        Stage dialogStage = (Stage) node.getScene().getWindow();
-        dialogStage.close();
-        Scene scene = new Scene(FXMLLoader.load(getClass().getResource("Login.fxml")));
-        dialogStage.setScene(scene);
-        dialogStage.show();
-    }
-
     public void deleteAction(ActionEvent event) {
     }
 
-    public void editAction(ActionEvent event) {
+    public void editAction(ActionEvent event) throws IOException {
+        Stage stage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("EditForm.fxml"));
+        Scene scene = null;
+        try {
+            scene = new Scene(fxmlLoader.load());
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+    }
+
+    public void addAction(ActionEvent event) throws IOException {
+        Stage stage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("MovieForm.fxml"));
+        Scene scene = null;
+        try {
+            scene = new Scene(fxmlLoader.load());
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
