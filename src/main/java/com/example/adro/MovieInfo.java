@@ -18,6 +18,12 @@ public class MovieInfo {
         return title;
     }
 
+    public MovieInfo(String title, Date date, int numberTickets) {
+        this.title = title;
+        this.date = date;
+        this.numberTickets = numberTickets;
+    }
+
     public void setTitle(String title) {
         this.title = title;
     }

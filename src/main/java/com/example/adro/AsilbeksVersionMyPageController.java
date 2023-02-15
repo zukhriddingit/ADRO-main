@@ -42,8 +42,6 @@ public class AsilbeksVersionMyPageController implements Initializable{
     @FXML
     private TableColumn<MovieInfo, Date> date;
     @FXML
-    private TableColumn<MovieInfo, String> session;
-    @FXML
     private TableColumn<MovieInfo, Integer> ticketNumber;
 
     @FXML
@@ -166,35 +164,31 @@ public class AsilbeksVersionMyPageController implements Initializable{
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
-
+        try {
+            refreshable();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
         connection = DataBaseConnect.getConnect();
 
         title.setCellValueFactory(new PropertyValueFactory<>("title"));
-        session.setCellValueFactory(new PropertyValueFactory<>("session"));
         date.setCellValueFactory(new PropertyValueFactory<>("date"));
-        ticketNumber.setCellValueFactory(new PropertyValueFactory<>("number"));
+        ticketNumber.setCellValueFactory(new PropertyValueFactory<>("numberTickets"));
     }
 
     public void addToCart(ActionEvent event) {
     }
     private void refreshable() throws SQLException {
         MovielistAdmin.clear();
-
-        try {
-            refreshable();
-        } catch (SQLException e) {
-            e.printStackTrace();
-            System.out.println("tralala");
-        }
-
+        connection = DataBaseConnect.getConnect();
         query = "SELECT * FROM `tickets` WHERE title = '"+label+"';";
+        System.out.println(label);
         preparedStatement = connection.prepareStatement(query);
         resultSet = preparedStatement.executeQuery();
 
         while (resultSet.next()){
             MovielistAdmin.add(new MovieInfo(
                     resultSet.getString("title"),
-                    resultSet.getString("session"),
                     resultSet.getDate("date"),
                     resultSet.getInt("number_tickets")
             ));

@@ -7,7 +7,7 @@ import java.util.logging.Logger;
 public class DataBaseConnect {
     private static String HOST = "127.0.0.1";
     private static int PORT = 3306;
-    private static String DB_NAME = "javafx";
+    private static String DB_NAME = "adro";
     private static String USERNAME = "root";
     private static String PASSWORD = "";
     private static Connection connection;

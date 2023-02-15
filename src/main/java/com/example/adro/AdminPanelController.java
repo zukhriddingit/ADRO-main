@@ -138,11 +138,7 @@ public class AdminPanelController implements Initializable {
                     resultSet.getInt("price"),
                     resultSet.getString("image_path")
                     ));
-//            AdminMovie result = new AdminMovie(resultSet.getString("title"),resultSet.getString("description"),resultSet.getString("genre"),resultSet.getString("language"),resultSet.getInt("duration"),resultSet.getInt("number_tickets"),resultSet.getString("session"),resultSet.getDate("start_date"),resultSet.getDate("end_date"),resultSet.getInt("price"));
-
-            System.out.println(resultSet.getString("title"));
             table.setItems(MovielistAdmin);
-            loadData();
         }
     }
 
@@ -162,7 +158,6 @@ public class AdminPanelController implements Initializable {
             refreshable();
         } catch (SQLException e) {
             e.printStackTrace();
-            System.out.println("tralala");
         }
 
         MovieTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
@@ -199,7 +194,7 @@ public class AdminPanelController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        loadData();
     }
 
     public void addAction(ActionEvent event) throws IOException {
