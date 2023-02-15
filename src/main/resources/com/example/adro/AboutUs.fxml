@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="533.0" prefWidth="950.0" style="-fx-background-color: grey;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.adro.AboutUsController">
+   <children>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="536.0" prefWidth="946.0" style="-fx-background-color: grey;">
+         <children>
+            <Pane fx:id="aboutbg" prefHeight="535.0" prefWidth="949.0">
+               <children>
+                  <VBox prefHeight="535.0" prefWidth="949.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="50.0" prefWidth="949.0" style="-fx-font-weight: bold;" text="About Us" textFill="WHITE">
+                           <font>
+                              <Font size="36.0" />
+                           </font>
+                        </Label>
+                        <HBox prefHeight="274.0" prefWidth="950.0">
+                           <children>
+                              <ImageView fx:id="image" fitHeight="272.0" fitWidth="255.0" pickOnBounds="true" preserveRatio="true">
+                                 <HBox.margin>
+                                    <Insets bottom="20.0" left="100.0" right="110.0" top="20.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <Label prefHeight="312.0" prefWidth="411.0" text="ADRO is the ultimate destination for movie lovers everywhere! Our innovative Movie Ticket Reservation System makes it easy for you to find the latest and greatest films, and secure your tickets in just a few clicks. With a simple and user-friendly interface, ADRO provides a seamless experience from start to finish. Whether you're planning a night out with friends or a family movie day, ADRO has you covered. Our team of dedicated professionals is always working to bring you the best in cinema, so you can sit back, relax and enjoy the show. Experience the future of movie-going with ADRO today!" textFill="WHITE" wrapText="true">
+                                 <font>
+                                    <Font name="System Italic" size="15.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox fx:id="person1" prefHeight="177.0" prefWidth="910.0">
+                           <children>
+                              <Pane prefHeight="123.0" prefWidth="951.0">
+                                 <children>
+                                    <ImageView fx:id="qr_ins" fitHeight="150.0" fitWidth="200.0" layoutX="14.0" layoutY="-13.0" pickOnBounds="true" preserveRatio="true" />
+                                    <ImageView fx:id="qr_tel" fitHeight="150.0" fitWidth="231.0" layoutX="438.0" layoutY="-9.0" pickOnBounds="true" preserveRatio="true" />
+                                    <ImageView fx:id="qr_twit" fitHeight="150.0" fitWidth="200.0" layoutX="818.0" layoutY="-9.0" pickOnBounds="true" preserveRatio="true" />
+                                 </children>
+                              </Pane>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="350.0">
+                           <children>
+                              <Label text="Instagram" textFill="WHITE" />
+                              <Label text="Telegram" textFill="WHITE" />
+                              <Label text="Twitter" textFill="WHITE" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
