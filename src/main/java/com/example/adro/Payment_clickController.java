@@ -22,7 +22,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-public class Payment_clickController implements Initializable{
+public class Payment_clickController {
 
     @FXML
     private Pane congratulations;
@@ -44,53 +44,53 @@ public class Payment_clickController implements Initializable{
 
     private static int numberTickets;
 
-    @Override
-    public void initialize(URL url, ResourceBundle rb){
-        loadDate();
-    }
-
-    String query = null;
-    Connection connection = null;
-    PreparedStatement preparedStatement = null;
-    ResultSet resultSet = null;
-    Movie movie = null;
-
-
-    ObservableList<Movie> Movielist = FXCollections.observableArrayList();
-
-    private void refreshable() throws SQLException {
-        Movielist.clear();
-
-        query = "SELECT Movie_name, Movie_id, Tickets_num, Price FROM cart";
-        preparedStatement = connection.prepareStatement(query);
-        resultSet = preparedStatement.executeQuery();
-
-        int total_price=0;
-        while (resultSet.next()) {
-            Movielist.add(new Movie(
-                    resultSet.getString("title"),
-                    resultSet.getInt("id"),
-                    numberTickets,
-                    resultSet.getInt("Price")
-            ));
-            total_price += resultSet.getInt("Price")*resultSet.getInt("Tickets_num");
-            tableview_click.setItems(Movielist);
-        }
-        total_click.setText("$"+String.valueOf(total_price));
-    }
-
-    private void loadDate() {
-        connection = DataBaseConnect.getConnect();
-        try {
-            refreshable();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        name_col_click.setCellValueFactory(new PropertyValueFactory<>(""));
-        id_col_click.setCellValueFactory(new PropertyValueFactory<>("id"));
-        price_col_click.setCellValueFactory(new PropertyValueFactory<>("tickets_num"));
-        tickets_col_click.setCellValueFactory(new PropertyValueFactory<>("price"));
-    }
+//    @Override
+//    public void initialize(URL url, ResourceBundle rb){
+//        loadDate();
+//    }
+//
+//    String query = null;
+//    Connection connection = null;
+//    PreparedStatement preparedStatement = null;
+//    ResultSet resultSet = null;
+//    Movie movie = null;
+//
+//
+//    ObservableList<Movie> Movielist = FXCollections.observableArrayList();
+//
+//    private void refreshable() throws SQLException {
+//        Movielist.clear();
+//
+//        query = "SELECT Movie_name, Movie_id, Tickets_num, Price FROM cart";
+//        preparedStatement = connection.prepareStatement(query);
+//        resultSet = preparedStatement.executeQuery();
+//
+//        int total_price=0;
+//        while (resultSet.next()) {
+//            Movielist.add(new Movie(
+//                    resultSet.getString("title"),
+//                    resultSet.getInt("id"),
+//                    numberTickets,
+//                    resultSet.getInt("Price")
+//            ));
+//            total_price += resultSet.getInt("Price")*resultSet.getInt("Tickets_num");
+//            tableview_click.setItems(Movielist);
+//        }
+//        total_click.setText("$"+String.valueOf(total_price));
+//    }
+//
+//    private void loadDate() {
+//        connection = DataBaseConnect.getConnect();
+//        try {
+//            refreshable();
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//        name_col_click.setCellValueFactory(new PropertyValueFactory<>(""));
+//        id_col_click.setCellValueFactory(new PropertyValueFactory<>("id"));
+//        price_col_click.setCellValueFactory(new PropertyValueFactory<>("tickets_num"));
+//        tickets_col_click.setCellValueFactory(new PropertyValueFactory<>("price"));
+//    }
 
     @FXML
     private void congratulations(ActionEvent event) throws IOException {

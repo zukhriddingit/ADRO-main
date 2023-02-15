@@ -15,6 +15,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Random;
 
 public class PdfGenerator {
 
@@ -27,6 +28,13 @@ public class PdfGenerator {
             Document document = new Document();
             PdfWriter.getInstance(document, new FileOutputStream(title + ".pdf"));
             document.open();
+
+            Random rand = new Random();
+            long randomNumber = (long)(rand.nextDouble() * 900000000000L) + 100000000000L;
+            System.out.println(randomNumber);
+            Paragraph paymentID = new Paragraph("PaymentID: " + randomNumber);
+            paymentID.setAlignment(Element.ALIGN_LEFT);
+            document.add(paymentID);
 
             Paragraph dateTimeParagraph = new Paragraph(new SimpleDateFormat("dd/MM/yyyy hh:mm a").format(new Date()), TABLE_CELL_FONT);
             dateTimeParagraph.setAlignment(Element.ALIGN_RIGHT);
@@ -62,6 +70,8 @@ public class PdfGenerator {
             totalParagraph.setAlignment(Element.ALIGN_RIGHT);
             totalParagraph.setSpacingBefore(20);
             document.add(totalParagraph);
+
+
             document.close();
         } catch (DocumentException | FileNotFoundException e) {
             e.printStackTrace();
