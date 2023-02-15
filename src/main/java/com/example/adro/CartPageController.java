@@ -89,11 +89,11 @@ public class CartPageController implements Initializable {
             e.printStackTrace();
         }
         nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
-        theatreCol.setCellValueFactory(new PropertyValueFactory<>("theatre"));
+        //theatreCol.setCellValueFactory(new PropertyValueFactory<>("theatre"));
         idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
         languageCol.setCellValueFactory(new PropertyValueFactory<>("language"));
-        timeCol.setCellValueFactory(new PropertyValueFactory<>("time"));
-        ticketsCol.setCellValueFactory(new PropertyValueFactory<>("tickets_num"));
+        //timeCol.setCellValueFactory(new PropertyValueFactory<>("time"));
+        //ticketsCol.setCellValueFactory(new PropertyValueFactory<>("tickets_num"));
         priceCol.setCellValueFactory(new PropertyValueFactory<>("price"));
     }
 

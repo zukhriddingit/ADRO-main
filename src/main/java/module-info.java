@@ -6,6 +6,7 @@ module com.example.adro {
     requires org.controlsfx.controls;
     requires com.dlsc.formsfx;
     requires itextpdf;
+
     //requires com.almasb.fxgl.all;
 
     opens com.example.adro to javafx.fxml;

@@ -2,14 +2,19 @@ package com.example.adro;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.Pane;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -18,6 +23,9 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class Payment_clickController implements Initializable{
+
+    @FXML
+    private Pane congratulations;
     @FXML
     private TableView<Movie> tableview_click;
     @FXML
@@ -82,6 +90,13 @@ public class Payment_clickController implements Initializable{
         id_col_click.setCellValueFactory(new PropertyValueFactory<>("id"));
         price_col_click.setCellValueFactory(new PropertyValueFactory<>("tickets_num"));
         tickets_col_click.setCellValueFactory(new PropertyValueFactory<>("price"));
+    }
+
+    @FXML
+    private void congratulations(ActionEvent event) throws IOException {
+            Parent fxml = FXMLLoader.load(getClass().getResource("getpdf.fxml"));
+            congratulations.getChildren().removeAll();
+            congratulations.getChildren().setAll(fxml);
     }
 
 

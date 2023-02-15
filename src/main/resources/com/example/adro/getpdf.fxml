@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="200.0" prefWidth="286.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.adro.GetpdfController">
+   <children>
+      <Label alignment="CENTER" layoutY="21.0" prefHeight="50.0" prefWidth="296.0" text="CONGRATULATIONS!">
+         <font>
+            <Font name="Segoe UI Semibold" size="24.0" />
+         </font>
+      </Label>
+      <Button fx:id="downloadPdf" layoutX="75.0" layoutY="100.0" mnemonicParsing="false" onAction="#downloadPdf" prefHeight="44.0" prefWidth="145.0" style="-fx-background-radius: 30;" text="Download your ticket!" />
+   </children>
+</AnchorPane>
