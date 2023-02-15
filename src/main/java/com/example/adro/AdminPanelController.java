@@ -28,7 +28,7 @@ import java.util.ResourceBundle;
 
 public class AdminPanelController implements Initializable {
     @FXML
-    private TableView<AdminMovie> tableAdmin;
+    private TableView<AdminMovie> table;
 
     @FXML
     private TableColumn<AdminMovie, String> MovieTitle;
@@ -45,11 +45,18 @@ public class AdminPanelController implements Initializable {
     @FXML
     private TableColumn<AdminMovie,String> Duration;
 
+
     @FXML
     private TableColumn<AdminMovie,String> NumberTickets;
 
     @FXML
     private TableColumn<AdminMovie,String> Session;
+
+    @FXML
+    private TableColumn<AdminMovie, String> Price1;
+
+    @FXML
+    private TableColumn<AdminMovie, String> Price11;
 
     @FXML
     private TableColumn<AdminMovie,String> StartDate;
@@ -59,6 +66,10 @@ public class AdminPanelController implements Initializable {
 
     @FXML
     private TableColumn<AdminMovie,String> Price;
+
+    @FXML
+    private TableColumn<AdminMovie,String> MovieDescription1;
+
     @FXML
     private Button addMovieBtn1;
 
@@ -118,16 +129,20 @@ public class AdminPanelController implements Initializable {
                     resultSet.getString("genre"),
                     resultSet.getString("language"),
                     resultSet.getInt("duration"),
-                    resultSet.getInt("number_tickets"),
                     resultSet.getString("session"),
+                    resultSet.getFloat("imdb"),
+                    resultSet.getInt("release_year"),
                     resultSet.getDate("start_date"),
                     resultSet.getDate("end_date"),
-                    resultSet.getInt("price")
+                    resultSet.getInt("number_tickets"),
+                    resultSet.getInt("price"),
+                    resultSet.getString("image_path")
                     ));
 //            AdminMovie result = new AdminMovie(resultSet.getString("title"),resultSet.getString("description"),resultSet.getString("genre"),resultSet.getString("language"),resultSet.getInt("duration"),resultSet.getInt("number_tickets"),resultSet.getString("session"),resultSet.getDate("start_date"),resultSet.getDate("end_date"),resultSet.getInt("price"));
 
             System.out.println(resultSet.getString("title"));
-            tableAdmin.setItems(MovielistAdmin);
+            table.setItems(MovielistAdmin);
+            loadData();
         }
     }
 
@@ -160,6 +175,10 @@ public class AdminPanelController implements Initializable {
         Price.setCellValueFactory(new PropertyValueFactory<>("price"));
         StartDate.setCellValueFactory(new PropertyValueFactory<>("startDate"));
         EndDate.setCellValueFactory(new PropertyValueFactory<>("endDate"));
+        Price1.setCellValueFactory(new PropertyValueFactory<>("imdb"));
+        Price11.setCellValueFactory(new PropertyValueFactory<>("release_year"));
+        MovieDescription.setCellValueFactory(new PropertyValueFactory<>("img_path"));
+
     }
 
     public void deleteAction(ActionEvent event) {

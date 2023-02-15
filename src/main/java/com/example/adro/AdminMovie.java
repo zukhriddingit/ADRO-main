@@ -52,7 +52,7 @@ public class AdminMovie {
 
     public AdminMovie(){}
 
-    public AdminMovie(String title, String description, String genre, String language, int duration, int numberTickets, String session, Date startDate, Date endDate, int price) {
+    public AdminMovie(String title, String description, String genre, String language, int duration,  String session,float imdb,int yearRelease,  Date startDate, Date endDate,int numberTickets, int price, String img_path) {
         this.title = title;
         this.description = description;
         this.genre = genre;
@@ -63,6 +63,9 @@ public class AdminMovie {
         this.startDate = startDate;
         this.endDate = endDate;
         this.price = price;
+        this.image_path = img_path;
+        this.imdb=imdb;
+        this.yearRelease=yearRelease;
     }
 
     public AdminMovie(String title, String description, String genre, String language, int duration, int numberTickets, String session, Date startDate, Date endDate, int price, int id) {
