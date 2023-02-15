@@ -67,7 +67,7 @@
                               <Insets bottom="10.0" />
                            </VBox.margin>
                         </Label>
-                        <Label prefHeight="28.0" prefWidth="168.0" textFill="WHITE" />
+                        <Label fx:id="dateOfBirth" prefHeight="28.0" prefWidth="168.0" textFill="WHITE" />
                      </children>
                   </VBox>
                </children>

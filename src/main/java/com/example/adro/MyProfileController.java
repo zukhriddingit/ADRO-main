@@ -29,6 +29,8 @@ import java.util.ResourceBundle;
 
 public class MyProfileController implements Initializable {
     @FXML
+    public Label dateOfBirth;
+    @FXML
     private ImageView userImage;
     @FXML
     private Label FullName;
@@ -43,29 +45,12 @@ public class MyProfileController implements Initializable {
     private Label UsernName;
 
     @FXML
-    private String dateOfBirth;
-    @FXML
     private Button LogoutBtn;
     @FXML
     private Button Editbtn;
     @FXML
     private Button Savebtn;
 
-    @FXML
-    private TextField TextfillEmail;
-
-    @FXML
-    private TextField TextfillFullname;
-
-    @FXML
-    private TextField TextfillNum;
-
-    @FXML
-    private DatePicker DatePicker;
-
-
-    @FXML
-    private TextField TextfillUserName;
     @FXML
     private BorderPane border;
     @FXML
@@ -85,10 +70,14 @@ public class MyProfileController implements Initializable {
         this.username = username;
     }
 
+    DataBaseConnect db = new DataBaseConnect();
+    ResultSet r = null;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         File file = new File("src/main/java/pictures");
-
+        Editpage ed = new Editpage();
+        ed.setUsername(username);
         try {
             Image image = new Image(file.toURI().toURL().toString()+"user.png");
             userImage.setImage(image);
@@ -96,24 +85,18 @@ public class MyProfileController implements Initializable {
             throw new RuntimeException(e);
         }
 
-//        DataBaseConnect db = new DataBaseConnect();
-//        try {
-//            ResultSet r = db.getInfo(username);
-//            r.next();
-//            UsernName.setText(r.getString("username"));
-//            FullName.setText(r.getString("fullname"));
-//            Email.setText(r.getString("email"));
-//            Number.setText(r.getString("phone"));
-//        } catch (SQLException e) {
-//            throw new RuntimeException(e);
-//        }
+        try {
+            r = db.getInfo(username);
+            r.next();
+            UsernName.setText(r.getString("username"));
+            FullName.setText(r.getString("fullname"));
+            Email.setText(r.getString("email"));
+            Number.setText(r.getString("phone"));
+            dateOfBirth.setText(r.getDate("dateOfBirth").toString());
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
-//        try {
-//            Image image = new Image(file.toURI().toURL().toString()+"user.png");
-//            userImage.setImage(image);
-//        } catch (MalformedURLException e) {
-//            throw new RuntimeException(e);
-//        }
         Editbtn.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override

@@ -21,6 +21,6 @@
          </children>
       </Pane>
       <Button fx:id="cancelBtn" layoutX="472.0" layoutY="316.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" styleClass="cancel" stylesheets="@myprofile.css" text="cancel" textFill="WHITE" />
-      <Button fx:id="Savebtn" layoutX="563.0" layoutY="316.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" styleClass="save" stylesheets="@myprofile.css" text="Save" />
+      <Button fx:id="Savebtn" onAction="#saveBtn" layoutX="563.0" layoutY="316.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" styleClass="save" stylesheets="@myprofile.css" text="Save" />
    </children>
 </Pane>
