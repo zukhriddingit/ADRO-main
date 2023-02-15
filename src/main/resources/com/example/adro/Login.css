@@ -35,3 +35,21 @@
 .l{
     -fx-background-color:white;
 }
+.sing{
+    -fx-background-color: #f27500;
+    -fx-cursor:hand;
+}
+.sing:hover{
+    -fx-background-color:white;
+    -fx-text-fill:#f27500;
+    -fx-cursor:hand;
+}
+.let{
+    -fx-background-color: #f27500;
+    -fx-cursor:hand;
+}
+.let:hover{
+    -fx-background-color:white;
+    -fx-cursor:hand;
+    -fx-text-fill:#f27500;
+}
