@@ -39,7 +39,7 @@
                               <Insets right="15.0" />
                            </HBox.margin>
                         </Label>
-                        <Button mnemonicParsing="false" onAction="#toSignIn" style="-fx-background-color: #f27500;" text="Sign In" />
+                        <Button mnemonicParsing="false" onAction="#toSignIn" styleClass="sing" stylesheets="@Login.css" text="Sign In" />
                      </children>
                   </HBox>
                   <VBox alignment="TOP_CENTER" prefHeight="421.0" prefWidth="297.0" style="-fx-background-radius: 20px; -fx-background-color: darkgray;">
@@ -88,7 +88,7 @@
                               <Insets />
                            </VBox.margin>
                         </Label>
-                        <Button mnemonicParsing="false" onAction="#registerAction" prefHeight="40.0" prefWidth="102.0" style="-fx-background-color: #f27500; -fx-background-radius: 20;" text="LET'S GO">
+                        <Button mnemonicParsing="false" onAction="#registerAction" prefHeight="40.0" prefWidth="102.0" style="-fx-background-radius: 20;" styleClass="let" stylesheets="@Login.css" text="LET'S GO">
                            <font>
                               <Font size="18.0" />
                            </font>
