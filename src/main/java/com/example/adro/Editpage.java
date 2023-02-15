@@ -65,12 +65,12 @@ public class Editpage implements Initializable {
             public void handle(ActionEvent actionEvent) {
                 Parent fxml = null;
                 try {
-                    fxml= FXMLLoader.load(getClass().getResource("MyProfile.fxml"));
+                    fxml= FXMLLoader.load(getClass().getResource("editpage.fxml"));
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
-                pane.getChildren().removeAll();
-                pane.getChildren().addAll(fxml);
+                pane.getChildren().removeAll(fxml);
+               // pane.getChildren().addAll(fxml);
 
             }
         });

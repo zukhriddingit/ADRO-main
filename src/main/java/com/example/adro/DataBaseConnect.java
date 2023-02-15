@@ -22,7 +22,7 @@ public class DataBaseConnect {
         return  connection;
     }
 
-    public static void insertData(String sql) throws SQLException {
+     public static void insertData(String sql) throws SQLException {
         Statement statement = getConnect().createStatement();
         if (statement.executeUpdate(sql)>0){
             System.out.println("Successfully added!");

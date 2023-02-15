@@ -65,6 +65,7 @@ public class EditFormController implements Initializable {
     private TextField release_year;
 
     private File file;
+    private String imagePath;
 
     @FXML
     void editAction(MouseEvent mouseEvent) {
@@ -81,6 +82,10 @@ public class EditFormController implements Initializable {
             System.out.println(file.getAbsolutePath());
         }else{
             System.out.println("null");
+        }
+        imagePath = file.getAbsolutePath();
+        if (imagePath.contains("\\")){
+            imagePath = imagePath.substring(imagePath.lastIndexOf('\\')+1);
         }
     }
 

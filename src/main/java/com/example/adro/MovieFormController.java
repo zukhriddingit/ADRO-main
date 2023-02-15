@@ -8,6 +8,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
@@ -15,6 +16,8 @@ import javafx.scene.input.MouseEvent;
 
 import java.io.File;
 import java.net.URL;
+import java.sql.*;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 public class MovieFormController implements Initializable {
@@ -66,12 +69,13 @@ public class MovieFormController implements Initializable {
 
     private File file;
 
-    @FXML
-    void addAction(ActionEvent event) {
+    String query = null;
+    Connection connection = null;
+    PreparedStatement preparedStatement = null;
+    ResultSet resultSet = null;
+    Movie movie = null;
 
-    }
-
-    private String imagePath;
+    private static String imagePath;
 
     @FXML
     public void setImage(MouseEvent mouseEvent) {
@@ -89,7 +93,10 @@ public class MovieFormController implements Initializable {
         }else{
             System.out.println("null");
         }
-        imagePath = file.getAbsolutePath();
+        this.imagePath = file.getAbsolutePath();
+        if (imagePath.contains("\\")){
+            imagePath = imagePath.substring(imagePath.lastIndexOf('\\')+1);
+        }
     }
 
     @Override
@@ -100,6 +107,27 @@ public class MovieFormController implements Initializable {
         combo_languages.getItems().addAll(languages);
         String[] sessions = {"10:00", "12:00", "15:00", "18:00", "21:00"};
         combo_session.getItems().addAll(sessions);
+    }
+
+    public void addAction(ActionEvent event) throws SQLException {
+        DataBaseConnect dataCon = new DataBaseConnect();
+        if (isNumeric(movieDuration.getText())&&isNumeric(moviePrice.getText())&&isNumeric(numberTickets.getText())){
+            String sql = "INSERT INTO `movies`(`title`, `description`, `genre`, `language`, `duration`, `session`, `imdb`, `release_year`, `start_date`, `end_date`, `number_tickets`, `price`, `image_path`) VALUES ('"+movieTitle.getText()+"','"+movieDescription.getText()+"','"+combo_genre.getValue()+"','"+combo_languages.getValue()+"','"+Integer.valueOf(movieDuration.getText())+"','"+combo_session.getValue()+"','"+Float.valueOf(rating.getText())+"','"+Integer.valueOf(release_year.getText())+"','"+movieStartDate.getValue()+"','"+movieEndDate.getValue()+"','"+Integer.valueOf(numberTickets.getText())+"','"+Integer.valueOf(moviePrice.getText())+"','"+imagePath+"')";
+            dataCon.insertData(sql);
+            for (LocalDate date = movieStartDate.getValue(); date.isBefore(movieEndDate.getValue());date = date.plusDays(1)) {
+                String sql2 = "INSERT INTO `tickets`(`title`, `date`, `number_tickets`) VALUES ('"+movieTitle.getText()+"','"+date+"','"+Integer.valueOf(numberTickets.getText())+"')";
+                dataCon.insertData(sql2);
+            }
+        }else System.out.println("Something went wrong");
+    }
+
+    public boolean isNumeric(String val){
+        try{
+            Integer.valueOf(val);
+            return true;
+        }catch(Exception e){
+            return false;
+        }
     }
 
 }
