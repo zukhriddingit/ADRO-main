@@ -20,6 +20,13 @@ import java.util.ResourceBundle;
 
 
 public class AsilbeksVersionMyPageController implements Initializable{
+    @FXML
+    private Label releaseDate;
+    @FXML
+    private Label imdb;
+
+    @FXML
+    private Label language;
 
 
     @FXML

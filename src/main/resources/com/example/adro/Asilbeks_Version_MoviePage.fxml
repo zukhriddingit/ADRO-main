@@ -25,7 +25,7 @@
                   </Label>
                   <Label fx:id="MovieDescription" alignment="CENTER" contentDisplay="CENTER" layoutX="227.0" layoutY="72.0" prefHeight="103.0" prefWidth="358.0" textFill="#fffdfd" wrapText="true" />
                   <ImageView fx:id="star" fitHeight="127.0" fitWidth="225.0" layoutX="674.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true" />
-                  <Button layoutX="219.0" onAction="#addToCart" layoutY="206.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="109.0" style="-fx-background-color: green;" text="Add to cart" textFill="WHITE">
+                  <Button layoutX="234.0" layoutY="300.0" mnemonicParsing="false" onAction="#addToCart" prefHeight="40.0" prefWidth="109.0" style="-fx-background-color: green;" text="Add to cart" textFill="WHITE">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -39,6 +39,32 @@
                      <font>
                         <Font size="13.0" />
                      </font></Label>
+                  <Label layoutX="249.0" layoutY="213.0" prefHeight="18.0" prefWidth="54.0" text="IMDB:" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="imdb" layoutX="300.0" layoutY="213.0" prefHeight="18.0" prefWidth="88.0" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="474.0" layoutY="172.0" prefHeight="20.0" prefWidth="52.0" text="Release:" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="releaseDate" layoutX="529.0" layoutY="174.0" prefHeight="18.0" prefWidth="112.0" textFill="WHITE" />
+                  <Label layoutX="474.0" layoutY="214.0" prefHeight="20.0" prefWidth="67.0" text="Language:" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="language" layoutX="543.0" layoutY="214.0" prefHeight="18.0" prefWidth="115.0" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
                </children></AnchorPane>
          </center>
       </BorderPane>

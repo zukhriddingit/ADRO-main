@@ -33,6 +33,8 @@ public class DashboardController implements Initializable {
 
     @FXML
     private Pane dashboardPane;
+    @FXML
+    private Button about;
 
     @FXML
     private Button cartButton;
@@ -121,6 +123,20 @@ public class DashboardController implements Initializable {
                 Parent fxml = null;
                 try {
                     fxml = FXMLLoader.load(getClass().getResource("CartPage.fxml"));
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+                dashboardPane.getChildren().removeAll();
+                dashboardPane.getChildren().setAll(fxml);
+            }
+        });
+        about.setOnAction(new EventHandler<ActionEvent>() {
+
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                Parent fxml = null;
+                try {
+                    fxml = FXMLLoader.load(getClass().getResource("AboutUs.fxml"));
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
