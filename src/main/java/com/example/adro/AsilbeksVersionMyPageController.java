@@ -1,5 +1,7 @@
 package com.example.adro;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -7,6 +9,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
@@ -15,6 +20,11 @@ import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 
@@ -24,6 +34,17 @@ public class AsilbeksVersionMyPageController implements Initializable{
     private Label releaseDate;
     @FXML
     private Label imdb;
+
+    @FXML
+    private TableView<MovieInfo> tableDates;
+    @FXML
+    private TableColumn<MovieInfo, String> title;
+    @FXML
+    private TableColumn<MovieInfo, Date> date;
+    @FXML
+    private TableColumn<MovieInfo, String> session;
+    @FXML
+    private TableColumn<MovieInfo, Integer> ticketNumber;
 
     @FXML
     private Label language;
@@ -86,6 +107,13 @@ public class AsilbeksVersionMyPageController implements Initializable{
         this.movie_path = movie_path;
     }
 
+    String query = null;
+    Connection connection = null;
+    PreparedStatement preparedStatement = null;
+    ResultSet resultSet = null;
+    Movie movie = null;
+    ObservableList<MovieInfo> MovielistAdmin = FXCollections.observableArrayList();
+
     public AsilbeksVersionMyPageController(String movie_path, String label, String description, String genre) {
         this.movie_path = movie_path;
         this.label = label;
@@ -139,18 +167,38 @@ public class AsilbeksVersionMyPageController implements Initializable{
             throw new RuntimeException(e);
         }
 
+        connection = DataBaseConnect.getConnect();
 
+        title.setCellValueFactory(new PropertyValueFactory<>("title"));
+        session.setCellValueFactory(new PropertyValueFactory<>("session"));
+        date.setCellValueFactory(new PropertyValueFactory<>("date"));
+        ticketNumber.setCellValueFactory(new PropertyValueFactory<>("number"));
     }
 
-    public void addToCart(ActionEvent event) throws IOException {
-        Node node = (Node)event.getSource();
-        Stage dialogStage = (Stage) node.getScene().getWindow();
-        dialogStage.close();
-        Scene scene = new Scene(FXMLLoader.load(getClass().getResource("CartPage.fxml")),1366,700);
-        dialogStage.setScene(scene);
-        dialogStage.show();
-//        FXMLLoader fxmlLoader = new FXMLLoader(SignUpPageApplication.class.getResource("Dashboard.fxml"));
-//        Scene scene = new Scene(fxmlLoader.load(), 1300, 700);
-//        dc.searchAction(scene);
+    public void addToCart(ActionEvent event) {
+    }
+    private void refreshable() throws SQLException {
+        MovielistAdmin.clear();
+
+        try {
+            refreshable();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("tralala");
+        }
+
+        query = "SELECT * FROM `tickets` WHERE title = '"+label+"';";
+        preparedStatement = connection.prepareStatement(query);
+        resultSet = preparedStatement.executeQuery();
+
+        while (resultSet.next()){
+            MovielistAdmin.add(new MovieInfo(
+                    resultSet.getString("title"),
+                    resultSet.getString("session"),
+                    resultSet.getDate("date"),
+                    resultSet.getInt("number_tickets")
+            ));
+            tableDates.setItems(MovielistAdmin);
+        }
     }
 }

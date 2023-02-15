@@ -3,6 +3,8 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
@@ -65,6 +67,14 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
+                  <TableView fx:id="tableDates" layoutX="621.0" layoutY="235.0" prefHeight="192.0" prefWidth="316.0">
+                    <columns>
+                      <TableColumn fx:id="title" prefWidth="75.0" text="Title" />
+                      <TableColumn fx:id="date" prefWidth="58.0" text="Date" />
+                        <TableColumn fx:id="session" prefWidth="66.0" text="Session" />
+                        <TableColumn fx:id="ticketNumber" prefWidth="116.0" text="Number of Tickets" />
+                    </columns>
+                  </TableView>
                </children></AnchorPane>
          </center>
       </BorderPane>
