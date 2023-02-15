@@ -1,3 +1,43 @@
 .left{
+    -fx-background-color:#393736;
+}
+.right{
     -fx-background-color:#323030;
+}
+.editbtn{
+    -fx-background-color:#e4770a;
+    -fx-text-fill:white;
+    -fx-cursor:hand;
+}
+.editbtn:hover{
+    -fx-background-color:#ff7b00;
+}
+.textfill{
+    -fx-background:#393736;
+    -fx-text-fill:white;
+}
+.save{
+    -fx-background-color:green;
+    -fx-text-fill:white;
+    -fx-cursor:hand;
+}
+.save:hover{
+    -fx-background-color:#004d0c;
+}
+.logout{
+    -fx-background-color:red;
+    -fx-text-fill:white;
+    -fx-cursor:hand;
+}
+
+.logout:hover{
+    -fx-background-color:#a10404;
+}
+.cancel{
+    -fx-background-color:#bc730e;
+    -fx-text-fill:white;
+    -fx-cursor:hand;
+}
+.cancel:hover{
+    -fx-background-color:#d35501;
 }

@@ -31,20 +31,16 @@ public class DataBaseConnect {
         }
     }
 
-    public static boolean getInfo(String username) throws SQLException {
-        PreparedStatement preparedStatement = getConnect().prepareStatement("select * from register where username = ?");
-        preparedStatement.setString(1,username);
+    public static ResultSet getInfo(String username) throws SQLException {
+        PreparedStatement preparedStatement = getConnect().prepareStatement("select * from `register` where username = '"+username+"';");
+
         ResultSet r1 = preparedStatement.executeQuery();
-        if (r1.next()){
-            return true;
-        }
-        else return false;
+        return r1;
     }
 
     public static boolean checkPassword(String username,String password, String tableName) throws SQLException {
-        PreparedStatement preparedStatement = getConnect().prepareStatement("SELECT password FROM `"+tableName+"` WHERE BINARY username=? AND BINARY  password=?;");
+        PreparedStatement preparedStatement = getConnect().prepareStatement("SELECT password FROM `"+tableName+"` WHERE BINARY username=? AND BINARY  password= MD5('"+password+"');");
         preparedStatement.setString(1,username);
-        preparedStatement.setString(2,password);
         ResultSet r = preparedStatement.executeQuery();
         if (r.next()){
             return true;
@@ -54,7 +50,6 @@ public class DataBaseConnect {
 
     public static AdminMovie dashMovie(int id) throws SQLException {
         PreparedStatement ps=getConnect().prepareStatement("SELECT * FROM `movies` WHERE id="+id);
-        System.out.println("IS this working?");
         ResultSet r= ps.executeQuery();
         AdminMovie adminMovie = new AdminMovie();
         if (r.next()){
@@ -68,12 +63,12 @@ public class DataBaseConnect {
             adminMovie.setNumberTickets(r.getInt("number_tickets"));
             adminMovie.setStartDate(r.getDate("start_date"));
             adminMovie.setEndDate(r.getDate("end_date"));
-            System.out.println(r.getString("title"));
         }
         return adminMovie;
     }
 
-    public static void main(String[] args) throws SQLException {
-        dashMovie(1);
+    public ResultSet getMovies(String sql) throws SQLException {
+        PreparedStatement ps = getConnect().prepareStatement(sql);
+        return ps.executeQuery();
     }
 }
