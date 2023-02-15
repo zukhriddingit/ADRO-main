@@ -20,6 +20,13 @@ import java.util.ResourceBundle;
 
 
 public class AsilbeksVersionMyPageController implements Initializable{
+    @FXML
+    private Label releaseDate;
+    @FXML
+    private Label imdb;
+
+    @FXML
+    private Label language;
 
 
     @FXML
@@ -28,7 +35,39 @@ public class AsilbeksVersionMyPageController implements Initializable{
     @FXML
     private ImageView star;
 
-    public static String movie_path, label, description, genre;
+    private static String movie_path;
+    private static String label;
+    private static String description;
+    private static String genre;
+
+    public static String getLang() {
+        return lang;
+    }
+
+    public static void setLang(String lang) {
+        AsilbeksVersionMyPageController.lang = lang;
+    }
+
+    public static float getiMDB() {
+        return iMDB;
+    }
+
+    public static void setiMDB(float iMDB) {
+        AsilbeksVersionMyPageController.iMDB = iMDB;
+    }
+
+    private static String lang;
+
+    private static int relese;
+    private static float iMDB;
+
+    public static int getRelese() {
+        return relese;
+    }
+
+    public static void setRelese(int relese) {
+        AsilbeksVersionMyPageController.relese = relese;
+    }
 
     @FXML
     private Label MovieName;
@@ -92,6 +131,9 @@ public class AsilbeksVersionMyPageController implements Initializable{
             MovieName.setText(label);
             Genre.setText(genre);
             MovieDescription.setText(description);
+            releaseDate.setText(Integer.toString(relese));
+            language.setText(lang);
+            imdb.setText(Float.toString(iMDB));
 
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);

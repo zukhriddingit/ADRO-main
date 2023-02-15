@@ -67,7 +67,9 @@ public class SignUpPageController implements Initializable {
             errorMsg.setText("Minimum age required is 16!");
         } else if(dataBaseConnect.getInfo(userName.getText()).next()){
             errorMsg.setText("This username already exists!");
-        }else {
+        } else if (password.getText().length()<6) {
+            errorMsg.setText("Password should contain at least 6 characters!");
+        } else {
             dataBaseConnect.insertData(sql);
             Node node = (Node)event.getSource();
             Stage dialogStage = (Stage) node.getScene().getWindow();

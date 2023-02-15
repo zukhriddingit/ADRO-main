@@ -119,7 +119,7 @@ public class MyProfileController implements Initializable {
         Node node = (Node)event.getSource();
         Stage dialogStage = (Stage) node.getScene().getWindow();
         dialogStage.close();
-        Scene scene = new Scene(FXMLLoader.load(getClass().getResource("Login.fxml")));
+        Scene scene = new Scene(FXMLLoader.load(getClass().getResource("Login.fxml")), 1300, 700);
         dialogStage.setScene(scene);
         dialogStage.show();
     }

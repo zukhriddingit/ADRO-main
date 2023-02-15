@@ -16,15 +16,15 @@
 }
 
 .btn-reg{
-    -fx-background-color:transparent;
+    -fx-background-color: #f27500;
     -fx-cursor:hand;
+    -fx-background-radius: 30;
 }
 .btn-reg:hover{
     -fx-text-fill:#e8651a;
+    -fx-background-color: white;
 }
-.btn-reg:pressed{
-    -fx-text-fill:white;
-}
+
 .lab{
     -fx-text-fill:red;
     -fx-font-weight:bold;
@@ -34,4 +34,22 @@
 }
 .l{
     -fx-background-color:white;
+}
+.sing{
+    -fx-background-color: #f27500;
+    -fx-cursor:hand;
+}
+.sing:hover{
+    -fx-background-color:white;
+    -fx-text-fill:#f27500;
+    -fx-cursor:hand;
+}
+.let{
+    -fx-background-color: #f27500;
+    -fx-cursor:hand;
+}
+.let:hover{
+    -fx-background-color:white;
+    -fx-cursor:hand;
+    -fx-text-fill:#f27500;
 }
