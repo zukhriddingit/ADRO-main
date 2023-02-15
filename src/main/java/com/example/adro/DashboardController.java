@@ -153,7 +153,7 @@ public class DashboardController implements Initializable {
             List<AdminMovie> movieList;
             String sql;
             if (Search.getText().isBlank()||Search.getText().isEmpty()||Search.getText()==null){
-                sql = "SELECT * FROM `movies`";
+                sql = "SELECT * FROM `movies` ORDER BY release_year DESC LIMIT 5;";
             }else {
                 sql = "SELECT * FROM `movies` WHERE title LIKE '%"+Search+"%' OR genre LIKE '%"+Search+"%' OR language LIKE '%"+Search+"%'";
             }
@@ -164,7 +164,7 @@ public class DashboardController implements Initializable {
             }
             for (int i = 0; i < movieList.size(); i++) {
                 hBox.getChildren().addAll(
-                        createCustomNode(movieList.get(i).getTitle(), images.get(movieList.get(i).getTitle()), file.toURI().toURL().toString() + images.get(movieList.get(i).getTitle()), i));
+                        createCustomNode(movieList.get(i).getTitle(), movieList.get(i).getImage_path(), file.toURI().toURL().toString() +movieList.get(i).getImage_path(), movieList.get(i).getTitle()));
             }
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
@@ -175,7 +175,7 @@ public class DashboardController implements Initializable {
         hbox.setAlignment(Pos.BASELINE_CENTER);
         List<AdminMovie> movieList;
         String sql;
-        sql = "SELECT * FROM `movies`";
+        sql = "SELECT * FROM `movies` ORDER BY imdb DESC LIMIT 5;";
         try {
             movieList = movies(sql);
         } catch (SQLException e) {
@@ -184,7 +184,7 @@ public class DashboardController implements Initializable {
         try {
             for (int i = 0; i < movieList.size(); i++) {
                 hbox.getChildren().addAll(
-                        createCustomNode(movieList.get(i).getTitle(), images.get(movieList.get(i).getTitle()), file.toURI().toURL().toString() + images.get(movieList.get(i).getTitle()), i));
+                        createCustomNode(movieList.get(i).getTitle(), movieList.get(i).getImage_path(), file.toURI().toURL().toString() +movieList.get(i).getImage_path(), movieList.get(i).getTitle()));
             }
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
@@ -192,7 +192,7 @@ public class DashboardController implements Initializable {
         scrollPane_NewMovies.setContent(hbox);
     }
 
-    public Node createCustomNode(String movieName, String imageID, String imageLink, int movieID) {
+    public Node createCustomNode(String movieName, String imageID, String imageLink, String movieID) {
         DataBaseConnect db = new DataBaseConnect();
         ImageView imageView = new ImageView();
         imageView.setImage(new Image(imageLink));
@@ -227,6 +227,9 @@ public class DashboardController implements Initializable {
             as.setMovie_path(imageId);
             as.setGenre(adminMovie.getGenre());
             as.setDescription(adminMovie.getDescription());
+            as.setRelese(adminMovie.getYearRelease());
+            as.setiMDB(adminMovie.getImdb());
+            as.setLang(adminMovie.getLanguage());
             fxml = FXMLLoader.load(getClass().getResource("Asilbeks_Version_MoviePage.fxml"));
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -251,6 +254,8 @@ public class DashboardController implements Initializable {
             adminMovie.setGenre(resultSet.getString("genre"));
             adminMovie.setDescription(resultSet.getString("description"));
             adminMovie.setNumberTickets(resultSet.getInt("number_tickets"));
+            adminMovie.setImdb(resultSet.getFloat("imdb"));
+            adminMovie.setYearRelease(resultSet.getInt("release_year"));
             result.add(adminMovie);
         }
         return result;

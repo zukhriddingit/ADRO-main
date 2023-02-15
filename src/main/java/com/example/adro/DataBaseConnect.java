@@ -48,8 +48,8 @@ public class DataBaseConnect {
         return false;
     }
 
-    public static AdminMovie dashMovie(int id) throws SQLException {
-        PreparedStatement ps=getConnect().prepareStatement("SELECT * FROM `movies` WHERE id="+id);
+    public static AdminMovie dashMovie(String movieId) throws SQLException {
+        PreparedStatement ps=getConnect().prepareStatement("SELECT * FROM `movies` WHERE title='"+movieId+"';");
         ResultSet r= ps.executeQuery();
         AdminMovie adminMovie = new AdminMovie();
         if (r.next()){

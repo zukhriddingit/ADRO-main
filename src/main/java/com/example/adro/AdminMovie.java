@@ -3,9 +3,42 @@ package com.example.adro;
 import java.sql.Date;
 
 public class AdminMovie {
-    private String title,description,genre,language;
+    private String title,description,genre,language,image_path;
 
     private int duration;
+
+    public String getImage_path() {
+        return image_path;
+    }
+
+    public void setImage_path(String image_path) {
+        this.image_path = image_path;
+    }
+
+    public int getYearRelease() {
+        return yearRelease;
+    }
+
+    public void setYearRelease(int yearRelease) {
+        this.yearRelease = yearRelease;
+    }
+
+    public float getImdb() {
+        return imdb;
+    }
+
+    public void setImdb(float imdb) {
+        this.imdb = imdb;
+    }
+
+    public AdminMovie(String title, String image_path) {
+        this.title = title;
+        this.image_path = image_path;
+    }
+
+    private int yearRelease;
+
+    private float imdb;
 
     private int numberTickets;
 

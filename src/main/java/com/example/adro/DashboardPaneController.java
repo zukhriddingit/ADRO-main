@@ -78,7 +78,7 @@ public class DashboardPaneController implements Initializable {
             List<AdminMovie> movieList;
             String sql;
             if (Search.isEmpty()||Search==null){
-                sql = "SELECT * FROM `movies`";
+                sql = "SELECT * FROM `movies` ORDER BY release_year DESC LIMIT 5;";
             }else {
                 sql = "SELECT * FROM `movies` WHERE title LIKE '%"+Search+"%' OR genre LIKE '%"+Search+"%' OR language LIKE '%"+Search+"%'";
             }
@@ -89,7 +89,7 @@ public class DashboardPaneController implements Initializable {
             }
             for (int i = 0; i < movieList.size(); i++) {
                 hBox.getChildren().addAll(
-                        createCustomNode(movieList.get(i).getTitle(), images.get(movieList.get(i).getTitle()), file.toURI().toURL().toString() + images.get(movieList.get(i).getTitle()), i));
+                        createCustomNode(movieList.get(i).getTitle(), movieList.get(i).getImage_path(), file.toURI().toURL().toString() +movieList.get(i).getImage_path(), movieList.get(i).getTitle()));
             }
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
@@ -100,7 +100,7 @@ public class DashboardPaneController implements Initializable {
         hbox.setAlignment(Pos.BASELINE_CENTER);
         List<AdminMovie> movieList;
         String sql;
-        sql = "SELECT * FROM `movies`";
+        sql = "SELECT * FROM `movies` ORDER BY imdb DESC LIMIT 5;";
         try {
             movieList = movies(sql);
         } catch (SQLException e) {
@@ -109,7 +109,7 @@ public class DashboardPaneController implements Initializable {
         try {
             for (int i = 0; i < movieList.size(); i++) {
                 hbox.getChildren().addAll(
-                        createCustomNode(movieList.get(i).getTitle(), images.get(movieList.get(i).getTitle()), file.toURI().toURL().toString() + images.get(movieList.get(i).getTitle()), i));
+                        createCustomNode(movieList.get(i).getTitle(), movieList.get(i).getImage_path(), file.toURI().toURL().toString() +movieList.get(i).getImage_path(), movieList.get(i).getTitle()));
             }
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
@@ -117,7 +117,7 @@ public class DashboardPaneController implements Initializable {
         scrollPane_NewMovies.setContent(hbox);
     }
 
-    public Node createCustomNode(String movieName, String imageID , String imageLink, int movieID) {
+    public Node createCustomNode(String movieName, String imageID , String imageLink, String movieID) {
         DataBaseConnect db = new DataBaseConnect();
         ImageView imageView = new ImageView();
         imageView.setImage(new Image(imageLink));
@@ -153,6 +153,9 @@ public class DashboardPaneController implements Initializable {
             as.setMovie_path(imageId);
             as.setGenre(adminMovie.getGenre());
             as.setDescription(adminMovie.getDescription());
+            as.setRelese(adminMovie.getYearRelease());
+            as.setiMDB(adminMovie.getImdb());
+            as.setLang(adminMovie.getLanguage());
             fxml = FXMLLoader.load(getClass().getResource("Asilbeks_Version_MoviePage.fxml"));
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -168,15 +171,8 @@ public class DashboardPaneController implements Initializable {
         ResultSet resultSet = db.getMovies(sql);
         while (resultSet.next()) {
             AdminMovie adminMovie = new AdminMovie();
-            adminMovie.setStartDate(resultSet.getDate("start_date"));
-            adminMovie.setEndDate(resultSet.getDate("end_date"));
-            adminMovie.setSession(resultSet.getString("session"));
             adminMovie.setTitle(resultSet.getString("title"));
-            adminMovie.setLanguage(resultSet.getString("language"));
-            adminMovie.setPrice(resultSet.getInt("price"));
-            adminMovie.setGenre(resultSet.getString("genre"));
-            adminMovie.setDescription(resultSet.getString("description"));
-            adminMovie.setNumberTickets(resultSet.getInt("number_tickets"));
+            adminMovie.setImage_path(resultSet.getString("image_path"));
             result.add(adminMovie);
         }
         return result;
