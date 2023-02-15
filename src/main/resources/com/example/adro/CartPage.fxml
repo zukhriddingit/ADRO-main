@@ -16,63 +16,58 @@
             <bottom>
                 <AnchorPane prefHeight="152.0" prefWidth="1535.0" style="-fx-background-color: #239687;" BorderPane.alignment="CENTER">
                     <children>
-                  <AnchorPane layoutX="192.0" prefHeight="10.0" prefWidth="1155.0" style="-fx-background-color: #c2a44a;" />
-                        <Button layoutX="369.0" layoutY="54.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="154.0" style="-fx-border-radius: 50; -fx-background-color: #b71f1f; -fx-line-spacing: 7; -fx-border-color: white; -fx-background-radius: 50; -fx-font-size: 16; -fx-border-style: dotted;" text="Pay via Click" textFill="#f5f5fa">
-                     <font>
-                        <Font size="94.0" />
-                     </font></Button>
-                  <Button fx:id="deleteButton" layoutX="1042.0" layoutY="54.0" mnemonicParsing="false" onAction="#deleteRow" prefHeight="43.0" prefWidth="154.0" style="-fx-background-color: #b71f1f; -fx-border-radius: 50; -fx-line-spacing: 7; -fx-border-color: white; -fx-background-radius: 50; -fx-font-size: 16; -fx-border-style: dotted;" text="Delete movie" textFill="#f7f3f3" wrapText="true">
-                     <font>
-                        <Font size="17.0" />
-                     </font>
-                  </Button>
-                  <Button layoutX="692.0" layoutY="55.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="154.0" style="-fx-border-radius: 50; -fx-background-color: #b71f1f; -fx-line-spacing: 7; -fx-border-color: white; -fx-background-radius: 50; -fx-font-size: 16; -fx-border-style: dotted;" text="Pay via Payme" textFill="#f5f5fa">
-                     <font>
-                        <Font size="94.0" />
-                     </font>
-                  </Button>
+                        <AnchorPane layoutX="192.0" prefHeight="10.0" prefWidth="1155.0" style="-fx-background-color: #c2a44a;" />
+                        <Button fx:id="payViaClick" layoutX="483.0" layoutY="54.0" mnemonicParsing="false" onAction="#toClickPayment" prefHeight="43.0" prefWidth="154.0" style="-fx-border-radius: 50; -fx-background-color: #b71f1f; -fx-line-spacing: 7; -fx-border-color: white; -fx-background-radius: 50; -fx-font-size: 16; -fx-border-style: dotted;" text="Pay via Click" textFill="#f5f5fa">
+                            <font>
+                                <Font size="94.0" />
+                            </font></Button>
+                        <Button fx:id="deleteButton" layoutX="924.0" layoutY="54.0" mnemonicParsing="false" onAction="#deleteRow" prefHeight="43.0" prefWidth="154.0" style="-fx-background-color: #b71f1f; -fx-border-radius: 50; -fx-line-spacing: 7; -fx-border-color: white; -fx-background-radius: 50; -fx-font-size: 16; -fx-border-style: dotted;" text="Delete movie" textFill="#f7f3f3" wrapText="true">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Button>
                     </children>
                 </AnchorPane>
             </bottom>
-         <top>
-            <AnchorPane prefHeight="127.0" prefWidth="1535.0" style="-fx-background-color: #239687;" BorderPane.alignment="CENTER">
-               <children>
-                  <Text fill="#b71f1f" layoutX="589.0" layoutY="91.0" lineSpacing="10.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 60;" text="Cart Movies" wrappingWidth="357.3367614746094">
-                     <font>
-                        <Font name="Comic Sans MS" size="41.0" />
-                     </font>
-                  </Text>
-                  <AnchorPane layoutX="191.0" layoutY="140.0" prefHeight="9.0" prefWidth="1155.0" style="-fx-background-color: #c2a44a;" />
-               </children>
-            </AnchorPane>
-         </top>
-         <center>
+            <top>
+                <AnchorPane prefHeight="127.0" prefWidth="1535.0" style="-fx-background-color: #239687;" BorderPane.alignment="CENTER">
+                    <children>
+                        <Text fill="#b71f1f" layoutX="589.0" layoutY="91.0" lineSpacing="10.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 60;" text="Cart Movies" wrappingWidth="357.3367614746094">
+                            <font>
+                                <Font name="Comic Sans MS" size="41.0" />
+                            </font>
+                        </Text>
+                        <AnchorPane layoutX="191.0" layoutY="140.0" prefHeight="9.0" prefWidth="1155.0" style="-fx-background-color: #c2a44a;" />
+                    </children>
+                </AnchorPane>
+            </top>
+            <center>
                 <TableView fx:id="movieTable" prefHeight="495.0" prefWidth="1287.0" style="-fx-background-color: #cfbfde;" BorderPane.alignment="CENTER">
                     <columns>
                         <TableColumn fx:id="nameCol" minWidth="0.0" prefWidth="165.60000306367874" text="Movie name" />
                         <TableColumn fx:id="theatreCol" prefWidth="163.2000274658203" text="Movie Theatre" />
                         <TableColumn fx:id="idCol" prefWidth="138.39996337890625" text="Movie id" />
-                  <TableColumn fx:id="languageCol" prefWidth="152.0" text="Language" />
-                  <TableColumn fx:id="timeCol" prefWidth="156.79998779296875" text="Movie time" />
-                  <TableColumn fx:id="ticketsCol" prefWidth="164.0" text="Tickets Number" />
-                  <TableColumn fx:id="priceCol" minWidth="4.800048828125" prefWidth="152.00006103515625" text="Price" />
+                        <TableColumn fx:id="languageCol" prefWidth="152.0" text="Language" />
+                        <TableColumn fx:id="timeCol" prefWidth="156.79998779296875" text="Movie time" />
+                        <TableColumn fx:id="ticketsCol" prefWidth="164.0" text="Tickets Number" />
+                        <TableColumn fx:id="priceCol" minWidth="4.800048828125" prefWidth="152.00006103515625" text="Price" />
                     </columns>
                 </TableView>
-         </center>
-         <right>
-            <FlowPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #239687;" BorderPane.alignment="CENTER">
-               <children>
-                  <AnchorPane prefHeight="490.0" prefWidth="10.0" style="-fx-background-color: #c2a44a;" />
-               </children>
-            </FlowPane>
-         </right>
-         <left>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #239687;" BorderPane.alignment="CENTER">
-               <children>
-                  <AnchorPane layoutX="191.0" layoutY="1.0" prefHeight="490.0" prefWidth="12.0" style="-fx-background-color: #c2a44a;" />
-               </children>
-            </AnchorPane>
-         </left>
+            </center>
+            <right>
+                <FlowPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #239687;" BorderPane.alignment="CENTER">
+                    <children>
+                        <AnchorPane prefHeight="490.0" prefWidth="10.0" style="-fx-background-color: #c2a44a;" />
+                    </children>
+                </FlowPane>
+            </right>
+            <left>
+                <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #239687;" BorderPane.alignment="CENTER">
+                    <children>
+                        <AnchorPane layoutX="191.0" layoutY="1.0" prefHeight="490.0" prefWidth="12.0" style="-fx-background-color: #c2a44a;" />
+                    </children>
+                </AnchorPane>
+            </left>
         </BorderPane>
 
     </children>

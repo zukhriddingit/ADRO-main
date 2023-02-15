@@ -25,7 +25,7 @@
                   </Label>
                   <Label fx:id="MovieDescription" alignment="CENTER" contentDisplay="CENTER" layoutX="227.0" layoutY="72.0" prefHeight="103.0" prefWidth="358.0" textFill="#fffdfd" wrapText="true" />
                   <ImageView fx:id="star" fitHeight="127.0" fitWidth="225.0" layoutX="674.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true" />
-                  <Button layoutX="219.0" layoutY="206.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="109.0" style="-fx-background-color: green;" text="Add to cart" textFill="WHITE">
+                  <Button layoutX="219.0" onAction="#addToCart" layoutY="206.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="109.0" style="-fx-background-color: green;" text="Add to cart" textFill="WHITE">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>

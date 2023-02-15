@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="529.0" prefWidth="824.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.adro.MovieFormController">
+   <children>
+      <VBox alignment="CENTER" prefHeight="446.0" prefWidth="285.0">
+         <children>
+            <StackPane prefHeight="227.0" prefWidth="194.0" style="-fx-border-color: black;">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="40.0" right="40.0" />
+               </VBox.margin>
+               <children>
+                  <ImageView fx:id="imported" fitHeight="227.0" fitWidth="190.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </StackPane>
+            <Button fx:id="importImage" mnemonicParsing="false" onMouseClicked="#setImage" text="Add a poster">
+               <VBox.margin>
+                  <Insets bottom="25.0" />
+               </VBox.margin>
+            </Button>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="27.0" prefWidth="124.0" text="Movie Title">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="movieTitle" prefHeight="26.0" prefWidth="272.0" promptText="Movie Title...">
+               <VBox.margin>
+                  <Insets bottom="15.0" left="30.0" right="30.0" />
+               </VBox.margin>
+            </TextField>
+         </children>
+      </VBox>
+      <VBox alignment="TOP_CENTER" layoutX="303.0" layoutY="19.0" prefHeight="410.0" prefWidth="218.0" styleClass="admin-form" stylesheets="@AdminPanel.css">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="27.0" prefWidth="124.0" text="Description">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextArea fx:id="movieDescription" prefHeight="69.0" prefWidth="224.0" promptText="Description...">
+               <VBox.margin>
+                  <Insets bottom="15.0" />
+               </VBox.margin>
+            </TextArea>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="27.0" prefWidth="124.0" text="Genre">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="combo_genre" prefHeight="26.0" prefWidth="217.0" promptText="Movie Genre">
+               <VBox.margin>
+                  <Insets bottom="15.0" />
+               </VBox.margin>
+            </ComboBox>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="27.0" prefWidth="124.0" text="Language">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="combo_languages" layoutX="16.0" layoutY="178.0" prefHeight="26.0" prefWidth="217.0" promptText="Movie Language">
+               <VBox.margin>
+                  <Insets bottom="15.0" />
+               </VBox.margin>
+            </ComboBox>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="60.0" layoutY="248.0" prefHeight="27.0" prefWidth="124.0" text="IMDB rating">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="rating" layoutX="10.0" layoutY="356.0" prefHeight="26.0" prefWidth="230.0" promptText="Rating...">
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </TextField>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="27.0" prefWidth="124.0" text="Year of release">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="release_year" prefHeight="26.0" prefWidth="230.0" promptText="Year...">
+               <VBox.margin>
+                  <Insets bottom="15.0" />
+               </VBox.margin>
+            </TextField>
+         </children>
+      </VBox>
+      <VBox alignment="TOP_CENTER" layoutX="559.0" layoutY="19.0" prefHeight="410.0" prefWidth="218.0" styleClass="admin-form" stylesheets="@AdminPanel.css">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="27.0" prefWidth="124.0" text="Duration">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="movieDuration" prefHeight="26.0" prefWidth="230.0" promptText="Duration...">
+               <VBox.margin>
+                  <Insets bottom="15.0" />
+               </VBox.margin>
+            </TextField>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="27.0" prefWidth="178.0" text="Number of Tickets">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="numberTickets" prefHeight="26.0" prefWidth="230.0" promptText="Number Of Tickets...">
+               <VBox.margin>
+                  <Insets bottom="15.0" />
+               </VBox.margin>
+            </TextField>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="27.0" prefWidth="124.0" text="Session">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="combo_session" prefHeight="26.0" prefWidth="217.0" promptText="Session Time">
+               <VBox.margin>
+                  <Insets bottom="15.0" />
+               </VBox.margin>
+            </ComboBox>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="27.0" prefWidth="124.0" text="Start/End Date">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <DatePicker fx:id="movieStartDate" prefHeight="26.0" prefWidth="143.0" promptText="Start Date">
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </DatePicker>
+            <DatePicker fx:id="movieEndDate" prefHeight="26.0" prefWidth="142.0" promptText="End Date">
+               <VBox.margin>
+                  <Insets bottom="16.0" />
+               </VBox.margin>
+            </DatePicker>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="27.0" prefWidth="124.0" text="Price">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="moviePrice" prefHeight="26.0" prefWidth="212.0" promptText="Price..." />
+         </children>
+      </VBox>
+      <Button fx:id="addMovieBtn" layoutX="335.0" layoutY="446.0" mnemonicParsing="false" onAction="#addAction" prefHeight="49.0" prefWidth="154.0" style="-fx-background-color: green; -fx-background-radius: 30;" text="ADD" textFill="WHITE">
+         <font>
+            <Font size="21.0" />
+         </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </Button>
+   </children>
+</AnchorPane>

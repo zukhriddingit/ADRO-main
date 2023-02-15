@@ -17,8 +17,15 @@ import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.sql.Date;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.Period;
+import java.util.Calendar;
 import java.util.ResourceBundle;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class SignUpPageController implements Initializable {
 
@@ -49,19 +56,27 @@ public class SignUpPageController implements Initializable {
     protected void registerAction(ActionEvent event) throws SQLException, IOException {
 
         DataBaseConnect dataBaseConnect = new DataBaseConnect();
-        String sql = "INSERT INTO `register`(`fullname`, `email`, `phone`, `username`, `password`, `dateOfBirth`) VALUES ('"+fullname.getText()+"','"+email.getText()+"','"+phoneNum.getText()+"','"+userName.getText()+"','"+password.getText()+"','"+dateOfBirth.getValue()+"')";
-        if (!email.getText().contains("@")){
-            errorMsg.setText("Email should contain '@'");
-        }else if(dataBaseConnect.getInfo(userName.getText())){
+        String sql = "INSERT INTO `register`(`fullname`, `email`, `phone`, `username`, `password`, `dateOfBirth`) VALUES ('" + fullname.getText() + "','" + email.getText() + "','" + phoneNum.getText() + "','" + userName.getText() + "',MD5('" + password.getText() + "'),'" + dateOfBirth.getValue() + "')";
+        if (fullname.getText().isEmpty()||email.getText().isEmpty()||phoneNum.getText().isEmpty()||userName.getText().isEmpty()||password.getText().isEmpty()||dateOfBirth.getValue().toString().isEmpty()){
+            errorMsg.setText("Every field should be filled!");
+        }else if (!emailValidate()){
+            errorMsg.setText("Please, enter a valid email!");
+        } else if (!phoneValidate(phoneNum.getText())){
+            errorMsg.setText("Please, enter true form of phone number!");
+        } else if (!birthDateValidate()) {
+            errorMsg.setText("Minimum age required is 16!");
+        } else if(dataBaseConnect.getInfo(userName.getText()).next()){
             errorMsg.setText("This username already exists!");
         }else {
             dataBaseConnect.insertData(sql);
             Node node = (Node)event.getSource();
             Stage dialogStage = (Stage) node.getScene().getWindow();
             dialogStage.close();
-            Scene scene = new Scene(FXMLLoader.load(getClass().getResource("Dashboard.fxml")));
+            Scene scene = new Scene(FXMLLoader.load(getClass().getResource("Dashboard.fxml")), 1366, 700);
             dialogStage.setScene(scene);
             dialogStage.show();
+            MyProfileController mp = new MyProfileController();
+            mp.setUsername(userName.getText());
         }
     }
 
@@ -86,6 +101,39 @@ public class SignUpPageController implements Initializable {
             imageVbox.getChildren().add(imageView);
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    private boolean emailValidate(){
+        Pattern p = Pattern.compile("[a-zA-Z0-9._]*@[a-zA-Z0-9]+([.][a-zA-Z]+)");
+        Matcher m = p.matcher(email.getText());
+        if (m.find() && m.group().equals(email.getText())){
+            return true;
+        }else {
+            return false;
+        }
+    }
+
+    private boolean phoneValidate(String phone){
+        if (phone.length()==9){
+            if (phone.startsWith("93")||phone.startsWith("91")||phone.startsWith("94")||phone.startsWith("97")||phone.startsWith("90")||phone.startsWith("95")||phone.startsWith("99")||phone.startsWith("88")||phone.startsWith("33")){
+                for (int i=2;i<phone.length();i++){
+                    if (!Character.isDigit(phone.charAt(i))) return false;
+                }
+                return true;
+            }else return false;
+        } else {
+            return false;
+        }
+    }
+
+    private boolean birthDateValidate(){
+        LocalDate localDate = dateOfBirth.getValue();
+        LocalDate currentPeriod = LocalDate.now();
+        if (Period.between(localDate, currentPeriod).getYears()>=16){
+            return true;
+        }else{
+            return false;
         }
     }
 }

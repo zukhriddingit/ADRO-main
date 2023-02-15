@@ -4,21 +4,29 @@ import java.util.Date;
 
 
 public class Movie {
-    String name, theatre, id, language, price;
+    String name, theatre, language, session;
     Date time;
-    int tickets_num;
+    int tickets_num, price;
+
+    int id;
 
 
 
 
-    public Movie(String name, String theatre,String id, String language, Date time,int tickets_num,String price) {
+    public Movie(String name,int id, String language, Date time,String session,int price) {
         this.name = name;
-        this.theatre = theatre;
         this.id = id;
         this.language = language;
         this.price = price;
         this.time = time;
-        this.tickets_num=tickets_num;
+        this.session=session;
+    }
+
+    public Movie(String movie_name, int movie_id, int tickets_num, int price) {
+        this.name = movie_name;
+        this.id = movie_id;
+        this.tickets_num = tickets_num;
+        this.price = price;
     }
 
     public void setName(String name) {
@@ -45,11 +53,11 @@ public class Movie {
         return time;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 
-    public String getPrice() {
+    public int getPrice() {
         return price;
     }
 
@@ -61,12 +69,12 @@ public class Movie {
         return language;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public int getId() {
+        return id;
     }
 
-    public String getId() {
-        return id;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void setTheatre(String theatre) {

@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane prefHeight="535.0" prefWidth="949.0" style="-fx-background-color: #7FFFD4;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<Pane prefHeight="535.0" prefWidth="949.0" style="-fx-background-color: #7FFFD4;" xmlns="http://javafx.com/javafx/19" fx:controller="com.example.adro.MyProfileController" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <VBox alignment="TOP_CENTER" layoutX="486.0" layoutY="52.0" prefHeight="412.0" prefWidth="360.0">
          <children>
