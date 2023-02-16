@@ -59,16 +59,13 @@ public class DashboardPaneController implements Initializable {
         this.Search = search;
     }
 
-    private static String Search;
+    private static String Search ="";
 
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
         movie(scrollPane_TopMovies2,scrollPane_NewMovies2);
     }
     public void movie(ScrollPane scrollPane_TopMovies,ScrollPane scrollPane_NewMovies){
-
-        DashboardController dash = new DashboardController();
-        HashMap<String, String> images = dash.images;
 
         File file = new File("src/main/java/pictures");
         HBox hBox = new HBox(); // for scrollpane

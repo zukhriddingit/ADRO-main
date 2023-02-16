@@ -18,10 +18,10 @@ public class GetpdfController {
     void downloadPdf(ActionEvent event) {
         String[] columnTitles = {"Movie", "Number of Tickets", "Total Price in $"};
         String[][] data = {
-                {"Avengers: Endgame", "2", "30.00"},
-                {"Black Panther", "3", "45.00"},
-                {"Jurassic World: Dominion", "1", "15.00"},
-                {"The Lion King", "4", "60.00"}
+                {"Top Gun", "3", "30.00"},
+                {"Matrix", "3", "45.00"},
+                {"Nope", "1", "15.00"},
+                {"Black Panther", "4", "60.00"}
         };
 
         //barcode

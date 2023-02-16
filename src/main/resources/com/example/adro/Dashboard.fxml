@@ -26,7 +26,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="profileButton" layoutX="684.0" layoutY="15.0" mnemonicParsing="false" styleClass="btn" stylesheets="@DesignDashboard.css" text="My Profile" textFill="WHITE" AnchorPane.rightAnchor="184.0">
+                  <Button fx:id="profileButton" onAction="#profileAction" layoutX="684.0" layoutY="15.0" mnemonicParsing="false" styleClass="btn" stylesheets="@DesignDashboard.css" text="My Profile" textFill="WHITE" AnchorPane.rightAnchor="184.0">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font>

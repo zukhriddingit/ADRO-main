@@ -6,10 +6,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -20,6 +22,9 @@ import java.util.ResourceBundle;
 public class Editpage implements Initializable {
     @FXML
     private Button cancelBtn;
+
+    @FXML
+    private Button Savebtn;
     @FXML
     private Pane pane;
     @FXML
@@ -59,21 +64,20 @@ public class Editpage implements Initializable {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        cancelBtn.setOnAction(new EventHandler<ActionEvent>() {
-
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                Parent fxml = null;
-                try {
-                    fxml= FXMLLoader.load(getClass().getResource("editpage.fxml"));
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
-                pane.getChildren().removeAll(fxml);
-               // pane.getChildren().addAll(fxml);
-
-            }
-        });
+//        cancelBtn.setOnAction(new EventHandler<ActionEvent>() {
+//
+//            @Override
+//            public void handle(ActionEvent actionEvent) {
+//                Parent fxml = null;
+//                try {
+//                    fxml= FXMLLoader.load(getClass().getResource("MyProfile.fxml"));
+//                } catch (IOException e) {
+//                    throw new RuntimeException(e);
+//                }
+//                pane.getChildren().removeAll(fxml);
+//                pane.getChildren().addAll(fxml);
+//            }
+//        });
 
     }
 
@@ -82,13 +86,11 @@ public class Editpage implements Initializable {
         System.out.println(TextfillNum.getText());
         String sql = "UPDATE `register` SET fullname='"+TextfillFullname.getText()+"',dateOfBirth='"+DatePicker.getValue()+"',email='"+TextfillEmail.getText()+"',phone='"+TextfillNum.getText()+"',username='"+TextfillUserName.getText()+"' WHERE username = '"+username+"';";
         db.insertData(sql);
-        Parent fxml = null;
-        try {
-            fxml= FXMLLoader.load(getClass().getResource("MyProfile.fxml"));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        pane.getChildren().removeAll();
-        pane.getChildren().addAll(fxml);
+
+
+
+        Stage stage = (Stage) Savebtn.getScene().getWindow();
+        stage.close();
+
     }
 }

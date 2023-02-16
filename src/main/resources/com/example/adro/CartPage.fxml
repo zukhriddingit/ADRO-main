@@ -1,33 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.shape.Rectangle?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="792.0" prefWidth="1532.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.adro.CartPageController">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="792.0" prefWidth="1532.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.adro.CartPageController">
     <children>
         <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="790.0" prefWidth="1535.0">
             <bottom>
                 <AnchorPane prefHeight="129.0" prefWidth="1535.0" style="-fx-background-color: #239687;" BorderPane.alignment="CENTER">
                     <children>
-                        <Button fx:id="payViaClick" layoutX="483.0" layoutY="54.0" mnemonicParsing="false" onAction="#toClickPayment" prefHeight="43.0" prefWidth="154.0" style="-fx-border-radius: 50; -fx-background-color: #b71f1f; -fx-line-spacing: 7; -fx-border-color: white; -fx-background-radius: 50; -fx-font-size: 16; -fx-border-style: dotted;" text="Pay via Click" textFill="#f5f5fa">
-                            <font>
-                                <Font size="94.0" />
-                            </font></Button>
-                        <Button fx:id="deleteButton" layoutX="910.0" layoutY="54.0" mnemonicParsing="false" onAction="#deleteRow" prefHeight="43.0" prefWidth="154.0" style="-fx-background-color: #b71f1f; -fx-border-radius: 50; -fx-line-spacing: 7; -fx-border-color: white; -fx-background-radius: 50; -fx-font-size: 16; -fx-border-style: dotted;" text="Delete movie" textFill="#f7f3f3" wrapText="true">
-                            <font>
-                                <Font size="17.0" />
-                            </font>
-                        </Button>
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="21.0" layoutX="192.0" layoutY="-10.0" stroke="BLACK" strokeType="INSIDE" width="1088.0" />
                     </children>
                 </AnchorPane>
@@ -63,6 +46,15 @@
                 <AnchorPane prefHeight="505.0" prefWidth="140.0" style="-fx-background-color: #239687;" BorderPane.alignment="CENTER">
                     <children>
                         <AnchorPane layoutX="190.0" layoutY="-2.0" prefHeight="532.0" prefWidth="12.0" style="-fx-background-color: #c2a44a;" />
+                        <Button fx:id="payViaClick" layoutX="24.0" layoutY="132.0" mnemonicParsing="false" onAction="#toClickPayment" prefHeight="43.0" prefWidth="154.0" style="-fx-border-radius: 50; -fx-background-color: #b71f1f; -fx-line-spacing: 7; -fx-border-color: white; -fx-background-radius: 50; -fx-font-size: 16; -fx-border-style: dotted;" text="Pay via Click" textFill="#f5f5fa">
+                            <font>
+                                <Font size="94.0" />
+                            </font></Button>
+                        <Button fx:id="deleteButton" layoutX="24.0" layoutY="222.0" mnemonicParsing="false" onAction="#deleteRow" prefHeight="43.0" prefWidth="154.0" style="-fx-background-color: #b71f1f; -fx-border-radius: 50; -fx-line-spacing: 7; -fx-border-color: white; -fx-background-radius: 50; -fx-font-size: 16; -fx-border-style: dotted;" text="Delete movie" textFill="#f7f3f3" wrapText="true">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Button>
                     </children>
                 </AnchorPane>
             </left>

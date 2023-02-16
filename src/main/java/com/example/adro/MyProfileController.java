@@ -101,14 +101,16 @@ public class MyProfileController implements Initializable {
 
             @Override
             public void handle(ActionEvent actionEvent) {
-                Parent fxml = null;
+                Stage stage = new Stage();
+                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("editpage.fxml"));
+                Scene scene = null;
                 try {
-                    fxml= FXMLLoader.load(getClass().getResource("editpage.fxml"));
+                    scene = new Scene(fxmlLoader.load(), 700, 500);
+                    stage.setScene(scene);
+                    stage.show();
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
-                pane.getChildren().removeAll();
-                pane.getChildren().setAll(fxml);
             }
         });
 

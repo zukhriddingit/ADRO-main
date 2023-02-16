@@ -101,20 +101,20 @@ public class DashboardController implements Initializable {
                 dashboardPane.getChildren().setAll(fxml);
             }
         });
-        profileButton.setOnAction(new EventHandler<ActionEvent>() {
-
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                Parent fxml = null;
-                try {
-                    fxml = FXMLLoader.load(getClass().getResource("MyProfile.fxml"));
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
-                dashboardPane.getChildren().removeAll();
-                dashboardPane.getChildren().setAll(fxml);
-            }
-        });
+//        profileButton.setOnAction(new EventHandler<ActionEvent>() {
+//
+//            @Override
+//            public void handle(ActionEvent actionEvent) {
+//                Parent fxml = null;
+//                try {
+//                    fxml = FXMLLoader.load(getClass().getResource("MyProfile.fxml"));
+//                } catch (IOException e) {
+//                    throw new RuntimeException(e);
+//                }
+//                dashboardPane.getChildren().removeAll();
+//                dashboardPane.getChildren().setAll(fxml);
+//            }
+//        });
 
         cartButton.setOnAction(new EventHandler<ActionEvent>() {
 
@@ -145,51 +145,56 @@ public class DashboardController implements Initializable {
             }
         });
 
-        File file = new File("src/main/java/pictures");
-        HBox hBox = new HBox(); // for scrollpane
-        hBox.setAlignment(Pos.BASELINE_CENTER);
+//        File file = new File("src/main/java/pictures");
+//        HBox hBox = new HBox(); // for scrollpane
+//        hBox.setAlignment(Pos.BASELINE_CENTER);
+//
+//        try {
+//            List<AdminMovie> movieList;
+//            String sql;
+//            if (Search.getText().isBlank()||Search.getText().isEmpty()||Search.getText()==null){
+//                sql = "SELECT * FROM `movies` ORDER BY release_year DESC LIMIT 5;";
+//            }else {
+//                sql = "SELECT * FROM `movies` WHERE title LIKE '%"+Search+"%' OR genre LIKE '%"+Search+"%' OR language LIKE '%"+Search+"%'";
+//            }
+//            try {
+//                movieList = movies(sql);
+//            } catch (SQLException e) {
+//                throw new RuntimeException(e);
+//            }
+//            for (int i = 0; i < movieList.size(); i++) {
+//                hBox.getChildren().addAll(
+//                        createCustomNode(movieList.get(i).getTitle(), movieList.get(i).getImage_path(), file.toURI().toURL().toString() +movieList.get(i).getImage_path(), movieList.get(i).getTitle()));
+//            }
+//        } catch (MalformedURLException e) {
+//            throw new RuntimeException(e);
+//        }
+//        scrollPane_TopMovies.setContent(hBox);
+//
+//        HBox hbox = new HBox();
+//        hbox.setAlignment(Pos.BASELINE_CENTER);
+//        List<AdminMovie> movieList;
+//        String sql;
+//        sql = "SELECT * FROM `movies` ORDER BY imdb DESC LIMIT 5;";
+//        try {
+//            movieList = movies(sql);
+//        } catch (SQLException e) {
+//            throw new RuntimeException(e);
+//        }
+//        try {
+//            for (int i = 0; i < movieList.size(); i++) {
+//                hbox.getChildren().addAll(
+//                        createCustomNode(movieList.get(i).getTitle(), movieList.get(i).getImage_path(), file.toURI().toURL().toString() +movieList.get(i).getImage_path(), movieList.get(i).getTitle()));
+//            }
+//        } catch (MalformedURLException e) {
+//            throw new RuntimeException(e);
+//        }
+//        scrollPane_NewMovies.setContent(hbox);
 
-        try {
-            List<AdminMovie> movieList;
-            String sql;
-            if (Search.getText().isBlank()||Search.getText().isEmpty()||Search.getText()==null){
-                sql = "SELECT * FROM `movies` ORDER BY release_year DESC LIMIT 5;";
-            }else {
-                sql = "SELECT * FROM `movies` WHERE title LIKE '%"+Search+"%' OR genre LIKE '%"+Search+"%' OR language LIKE '%"+Search+"%'";
-            }
-            try {
-                movieList = movies(sql);
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
-            for (int i = 0; i < movieList.size(); i++) {
-                hBox.getChildren().addAll(
-                        createCustomNode(movieList.get(i).getTitle(), movieList.get(i).getImage_path(), file.toURI().toURL().toString() +movieList.get(i).getImage_path(), movieList.get(i).getTitle()));
-            }
-        } catch (MalformedURLException e) {
-            throw new RuntimeException(e);
+        if (dashboardPane==null){
+            DashboardPaneController dbc = new DashboardPaneController();
+            dbc.movie(scrollPane_TopMovies, scrollPane_NewMovies);
         }
-        scrollPane_TopMovies.setContent(hBox);
-
-        HBox hbox = new HBox();
-        hbox.setAlignment(Pos.BASELINE_CENTER);
-        List<AdminMovie> movieList;
-        String sql;
-        sql = "SELECT * FROM `movies` ORDER BY imdb DESC LIMIT 5;";
-        try {
-            movieList = movies(sql);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        try {
-            for (int i = 0; i < movieList.size(); i++) {
-                hbox.getChildren().addAll(
-                        createCustomNode(movieList.get(i).getTitle(), movieList.get(i).getImage_path(), file.toURI().toURL().toString() +movieList.get(i).getImage_path(), movieList.get(i).getTitle()));
-            }
-        } catch (MalformedURLException e) {
-            throw new RuntimeException(e);
-        }
-        scrollPane_NewMovies.setContent(hbox);
     }
 
     public Node createCustomNode(String movieName, String imageID, String imageLink, String movieID) {
@@ -272,6 +277,21 @@ public class DashboardController implements Initializable {
             throw new RuntimeException(e);
         }
         dashboardPane.getChildren().removeAll();
+        dashboardPane.getChildren().setAll(fxml);
+    }
+
+    public void profileAction(ActionEvent event) {
+        Parent fxml = null;
+        try {
+            fxml = FXMLLoader.load(getClass().getResource("MyProfile.fxml"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        dashboardPane.getChildren().removeAll();
+        dashboardPane.getChildren().setAll(fxml);
+    }
+
+    public void centerRemove(Parent fxml){
         dashboardPane.getChildren().setAll(fxml);
     }
 }
