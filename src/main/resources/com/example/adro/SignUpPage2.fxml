@@ -13,7 +13,7 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #323030;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.adro.SignUpPageController">
    <children>
-      <HBox prefHeight="600.0" prefWidth="800.0">
+      <HBox prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: grey;">
          <children>
             <VBox fx:id="imageVbox" alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="600.0" prefWidth="437.0">
                <HBox.margin>
