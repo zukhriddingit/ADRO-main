@@ -48,6 +48,7 @@ public class DashboardController implements Initializable {
     @FXML
     private TextField Search;
 
+
     public TextField getSearch() {
         return Search;
     }
@@ -55,28 +56,6 @@ public class DashboardController implements Initializable {
     public void setSearch(TextField search) {
         Search = search;
     }
-//    ObservableList<AdminMovie> searchObservableList = FXCollections.observableArrayList();
-
-    HashMap<String, String> images = new HashMap<String, String>() {{
-        put("TOP GUN", "movie_1.jpeg");
-        put("Matrix", "movie_3.jpeg");
-        put("Interseller", "movie_4.jpg");
-        put("Inception", "movie_5.jpg");
-        put("The Dark Knight", "movie_6.jpg");
-        put("LUCY", "movie_7.jpg");
-        put("WEDNESDAY", "movie_8.jpg");
-        put("FORREST GUMP", "movie_10.jpg");
-        put("NOPE", "verMovie_2");
-        put("PUSS IN BOOTS", "new_movie1");
-        put("AVATAR2", "new_movie2");
-        put("HIGH HEAT", "new_movie3");
-        put("VIOLENT NIGHT", "new_movie4");
-        put("TROLL", "new_movie5");
-        put("WAKANDA FOREVER", "new_movie6");
-        put("DETECTIVE KNIGHT", "new_movie7");
-        put("THE WOMAN KING", "new_movie8");
-        put("ALL QUIET ON THE WESTERN FRONT", "movie_9");
-    }};
 
     public void setDashboardPane(Pane dashboardPane) {
         this.dashboardPane = dashboardPane;
@@ -101,20 +80,6 @@ public class DashboardController implements Initializable {
                 dashboardPane.getChildren().setAll(fxml);
             }
         });
-//        profileButton.setOnAction(new EventHandler<ActionEvent>() {
-//
-//            @Override
-//            public void handle(ActionEvent actionEvent) {
-//                Parent fxml = null;
-//                try {
-//                    fxml = FXMLLoader.load(getClass().getResource("MyProfile.fxml"));
-//                } catch (IOException e) {
-//                    throw new RuntimeException(e);
-//                }
-//                dashboardPane.getChildren().removeAll();
-//                dashboardPane.getChildren().setAll(fxml);
-//            }
-//        });
 
         cartButton.setOnAction(new EventHandler<ActionEvent>() {
 
@@ -145,56 +110,8 @@ public class DashboardController implements Initializable {
             }
         });
 
-//        File file = new File("src/main/java/pictures");
-//        HBox hBox = new HBox(); // for scrollpane
-//        hBox.setAlignment(Pos.BASELINE_CENTER);
-//
-//        try {
-//            List<AdminMovie> movieList;
-//            String sql;
-//            if (Search.getText().isBlank()||Search.getText().isEmpty()||Search.getText()==null){
-//                sql = "SELECT * FROM `movies` ORDER BY release_year DESC LIMIT 5;";
-//            }else {
-//                sql = "SELECT * FROM `movies` WHERE title LIKE '%"+Search+"%' OR genre LIKE '%"+Search+"%' OR language LIKE '%"+Search+"%'";
-//            }
-//            try {
-//                movieList = movies(sql);
-//            } catch (SQLException e) {
-//                throw new RuntimeException(e);
-//            }
-//            for (int i = 0; i < movieList.size(); i++) {
-//                hBox.getChildren().addAll(
-//                        createCustomNode(movieList.get(i).getTitle(), movieList.get(i).getImage_path(), file.toURI().toURL().toString() +movieList.get(i).getImage_path(), movieList.get(i).getTitle()));
-//            }
-//        } catch (MalformedURLException e) {
-//            throw new RuntimeException(e);
-//        }
-//        scrollPane_TopMovies.setContent(hBox);
-//
-//        HBox hbox = new HBox();
-//        hbox.setAlignment(Pos.BASELINE_CENTER);
-//        List<AdminMovie> movieList;
-//        String sql;
-//        sql = "SELECT * FROM `movies` ORDER BY imdb DESC LIMIT 5;";
-//        try {
-//            movieList = movies(sql);
-//        } catch (SQLException e) {
-//            throw new RuntimeException(e);
-//        }
-//        try {
-//            for (int i = 0; i < movieList.size(); i++) {
-//                hbox.getChildren().addAll(
-//                        createCustomNode(movieList.get(i).getTitle(), movieList.get(i).getImage_path(), file.toURI().toURL().toString() +movieList.get(i).getImage_path(), movieList.get(i).getTitle()));
-//            }
-//        } catch (MalformedURLException e) {
-//            throw new RuntimeException(e);
-//        }
-//        scrollPane_NewMovies.setContent(hbox);
-
-        if (dashboardPane==null){
-            DashboardPaneController dbc = new DashboardPaneController();
-            dbc.movie(scrollPane_TopMovies, scrollPane_NewMovies);
-        }
+        DashboardPaneController dbc = new DashboardPaneController();
+        dbc.movie(scrollPane_TopMovies, scrollPane_NewMovies);
     }
 
     public Node createCustomNode(String movieName, String imageID, String imageLink, String movieID) {

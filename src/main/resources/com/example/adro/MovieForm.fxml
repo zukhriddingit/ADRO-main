@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="529.0" prefWidth="824.0" style="-fx-background-color: lightblue;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.adro.MovieFormController">
+<AnchorPane id="errorDate" prefHeight="529.0" prefWidth="824.0" style="-fx-background-color: lightblue;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.adro.MovieFormController">
    <children>
       <VBox alignment="CENTER" prefHeight="446.0" prefWidth="285.0">
          <children>
@@ -146,6 +146,7 @@
                   <Insets bottom="16.0" />
                </VBox.margin>
             </DatePicker>
+            <Label fx:id="errorDate" textFill="#f50808" />
             <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="27.0" prefWidth="124.0" text="Price">
                <font>
                   <Font size="18.0" />
