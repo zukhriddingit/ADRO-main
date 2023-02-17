@@ -110,8 +110,9 @@ public class DashboardController implements Initializable {
             }
         });
 
-        DashboardPaneController dbc = new DashboardPaneController();
-        dbc.movie(scrollPane_TopMovies, scrollPane_NewMovies);
+
+        DashboardPaneController dbpc = new DashboardPaneController();
+        dbpc.movie(scrollPane_TopMovies, scrollPane_NewMovies);
     }
 
     public Node createCustomNode(String movieName, String imageID, String imageLink, String movieID) {
@@ -205,10 +206,6 @@ public class DashboardController implements Initializable {
             throw new RuntimeException(e);
         }
         dashboardPane.getChildren().removeAll();
-        dashboardPane.getChildren().setAll(fxml);
-    }
-
-    public void centerRemove(Parent fxml){
         dashboardPane.getChildren().setAll(fxml);
     }
 }

@@ -5,6 +5,9 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
@@ -25,6 +28,18 @@
                         <Insets right="60.0" />
                      </HBox.margin>
                   </Label>
+                  <Button mnemonicParsing="false" onAction="#toReload" prefHeight="68.0" prefWidth="63.0" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-radius: 15; -fx-border-width: 3;">
+                     <graphic>
+                        <ImageView fitHeight="49.0" fitWidth="46.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true" style="-fx-rotate: 90;">
+                           <image>
+                              <Image url="D:\java Praktikum\ADRO-main\src\main\java\pictures\reloadbtn.png" />
+                           </image>
+                           <effect>
+                              <Blend />
+                           </effect>
+                        </ImageView>
+                     </graphic>
+                  </Button>
                   <Button fx:id="addMovieBtn1" mnemonicParsing="false" onAction="#addAction" prefHeight="50.0" prefWidth="120.0" style="-fx-background-color: green; -fx-background-radius: 30;" text="ADD" textFill="WHITE">
                      <font>
                         <Font size="21.0" />

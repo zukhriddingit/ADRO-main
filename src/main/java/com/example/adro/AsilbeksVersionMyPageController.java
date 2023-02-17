@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
@@ -14,6 +15,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.File;
@@ -30,6 +32,9 @@ import java.util.ResourceBundle;
 
 
 public class AsilbeksVersionMyPageController implements Initializable{
+    @FXML
+    private AnchorPane anchorPane;
+
     @FXML
     private Label releaseDate;
     @FXML
@@ -176,7 +181,11 @@ public class AsilbeksVersionMyPageController implements Initializable{
         ticketNumber.setCellValueFactory(new PropertyValueFactory<>("numberTickets"));
     }
 
-    public void addToCart(ActionEvent event) {
+    public void addToCart(ActionEvent event) throws IOException {
+        Parent fxml = FXMLLoader.load(getClass().getResource("CartPage.fxml"));
+        anchorPane.getChildren().removeAll();
+        anchorPane.getChildren().setAll(fxml);
+
     }
     private void refreshable() throws SQLException {
         MovielistAdmin.clear();
