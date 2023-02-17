@@ -171,12 +171,17 @@ public class AdminPanelController implements Initializable {
         StartDate.setCellValueFactory(new PropertyValueFactory<>("startDate"));
         EndDate.setCellValueFactory(new PropertyValueFactory<>("endDate"));
         Price1.setCellValueFactory(new PropertyValueFactory<>("imdb"));
-        Price11.setCellValueFactory(new PropertyValueFactory<>("release_year"));
-        MovieDescription.setCellValueFactory(new PropertyValueFactory<>("img_path"));
+        Price11.setCellValueFactory(new PropertyValueFactory<>("yearRelease"));
+        MovieDescription1.setCellValueFactory(new PropertyValueFactory<>("image_path"));
 
     }
 
-    public void deleteAction(ActionEvent event) {
+    public void deleteAction(ActionEvent event) throws SQLException {
+        AdminMovie title = table.getSelectionModel().getSelectedItem();
+        preparedStatement = connection.prepareStatement("DELETE FROM movies WHERE title = ?");
+        preparedStatement.setString(1, title.getTitle());
+        preparedStatement.executeUpdate();
+        table.getItems().removeAll(title);
     }
 
     public void editAction(ActionEvent event) throws IOException {
