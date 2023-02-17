@@ -176,7 +176,12 @@ public class AdminPanelController implements Initializable {
 
     }
 
-    public void deleteAction(ActionEvent event) {
+    public void deleteAction(ActionEvent event) throws SQLException {
+        AdminMovie title = table.getSelectionModel().getSelectedItem();
+        preparedStatement = connection.prepareStatement("DELETE FROM movies WHERE title = ?");
+        preparedStatement.setString(1, title.getTitle());
+        preparedStatement.executeUpdate();
+        table.getItems().removeAll(title);
     }
 
     public void editAction(ActionEvent event) throws IOException {
