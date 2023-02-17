@@ -171,8 +171,8 @@ public class AdminPanelController implements Initializable {
         StartDate.setCellValueFactory(new PropertyValueFactory<>("startDate"));
         EndDate.setCellValueFactory(new PropertyValueFactory<>("endDate"));
         Price1.setCellValueFactory(new PropertyValueFactory<>("imdb"));
-        Price11.setCellValueFactory(new PropertyValueFactory<>("release_year"));
-        MovieDescription.setCellValueFactory(new PropertyValueFactory<>("img_path"));
+        Price11.setCellValueFactory(new PropertyValueFactory<>("yearRelease"));
+        MovieDescription1.setCellValueFactory(new PropertyValueFactory<>("image_path"));
 
     }
 
